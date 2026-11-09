@@ -1,0 +1,156 @@
+/* ==========================================================================
+   娜娜問路居 - 銀行轉帳成功感謝頁專用 CSS (transfer-success.css)
+   精準修正：大卡片完美靠齊首頁固定導覽列下方，留出 20px 舒適呼吸間距
+   ========================================================================== */
+
+/* 1. 頁面基礎佈局定位與全站米色底色鎖定 */
+body.site-page {
+    background-color: #f7f5f0 !important; /* 確保與全站統一的大地暖米色背景 */
+    padding-top: 0 !important;            /* 拔除內嵌多餘的 padding 避免排版錯位 */
+}
+
+/* 強制讓 site-page 狀態下的 main 區塊擁有精準的向下安全推距，完美躲在大橫幅下方 */
+.site-page .site-page-main {
+    margin-top: 260px !important;  /* 電腦版大橫幅高度 240px + 20px 舒適留白 */
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 2. 轉帳感謝卡片本體樣式優化 */
+.success-card {
+    text-align: center;
+    max-width: 580px; /* 寬螢幕下收縮成精緻的黃金比例卡片外觀 */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.success-title {
+    color: #a05e5e; /* 娜娜問路居品牌典育紅褐色 */
+    font-size: 26px;
+    font-weight: 500;
+    margin: 25px 0 15px;
+    letter-spacing: 2px;
+}
+
+.success-notice {
+    color: #5a4b5c; /* 全站主要深紫調文字 */
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+/* 3. 動態訂單明細小看板區塊 */
+.order-meta-box {
+    background-color: #faf9f6;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 12px;
+    padding: 18px 24px;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #5a4b5c;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.order-meta-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+/* 4. 高質感植物綠匯款帳號資訊卡片 */
+.bank-info-box {
+    background-color: #fdfdfb;
+    border: 1px solid #48533C; /* 完美整合品牌深植物綠邊框 */
+    border-radius: 12px;
+    padding: 24px;
+    text-align: left;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 15px rgba(72, 83, 60, 0.04);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.bank-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #48533C;
+    margin-top: 0;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(72, 83, 60, 0.15);
+    padding-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.bank-detail-line {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #5a4b5c;
+}
+
+.bank-detail-line strong {
+    color: #333333;
+}
+
+/* 實體銀行帳號背書高亮強調外框 */
+.bank-highlight {
+    font-family: 'Courier New', Courier, monospace; /* 強制等寬數字，防止看錯 */
+    font-size: 19px;
+    font-weight: bold;
+    color: #111111;
+    background-color: #eeeae1; /* 溫和的淡奶茶背景色 */
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+   5. 📱 手機端 RWD 響應式佈局微調 (精準契合您的 768px 標準)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .site-page .site-page-main {
+        margin-top: 180px !important; /* 手機版橫幅縮小至 160px + 20px 舒適安全推距 */
+        padding-bottom: 40px;
+    }
+
+    .success-title {
+        font-size: 21px;
+        letter-spacing: 1px;
+    }
+
+    .success-notice {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .order-meta-box {
+        padding: 14px 18px;
+        font-size: 14px;
+    }
+
+    .bank-info-box {
+        padding: 18px;
+        margin-bottom: 25px;
+    }
+
+    .bank-title {
+        font-size: 15px;
+    }
+
+    .bank-detail-line {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .bank-highlight {
+        font-size: 17px;
+        padding: 2px 8px;
+    }
+}

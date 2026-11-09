@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 管理者登入</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <script type="module" src="../js/login.js"></script>
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body class="site-page front-login-page">
+
+    <!-- 1. 頂部固定導覽列（大橫幅風格） -->
+
+    <main class="site-page-main">
+        <div class="content-card">
+            <div class="card-label">管理者登入</div>
+            <div class="login-content">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">管理員帳號 (Email)</label>
+                        <input class="form-input" type="email" id="email" required placeholder="請輸入管理員帳號">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">密碼 (Password)</label>
+                        <input class="form-input" type="password" id="password" required placeholder="請輸入密碼">
+                    </div>
+                    <button type="submit" class="primary-button login-submit-btn">安全登入後台</button>
+                </form>
+            </div>
+
+            <!-- 頁尾返回連結 -->
+            <div class="page-footer">
+                <a href="../index.html" class="back-home-link">← 返回網頁首頁</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 🌟 3. 右下角靈性療癒系懸浮面板（完美同步 class 專屬樣式） -->
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="location.href='./booking.html'">免費諮詢</button>
+</body>
+
+</html>

@@ -1,0 +1,329 @@
+/* ==========================================================================
+   🌸 預約管理專區（admin-booking.html）- 後台整合前台美學樣式表
+   ========================================================================== */
+
+/* 承襲並擴充您原有的佈局架構 */
+.booking-muna-layout {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.booking-summary-bar {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid rgba(191, 163, 122, 0.15);
+    border-radius: 10px;
+    background-color: #faf9f6;
+    color: #5a4b5c;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.booking-list-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.booking-loading-text {
+    padding: 40px 0;
+    color: #9ca3af;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   👥 1. 歷史客戶預約紀錄卡片主體
+   ========================================================================== */
+.customer-booking-card {
+    width: 100%;
+    padding: 24px 28px;
+    border: 1px solid rgba(191, 163, 122, 0.25); 
+    border-radius: 20px;                         
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(90, 75, 92, 0.05); 
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #5a4b5c;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.customer-booking-card:hover {
+    transform: translateY(-2px);
+    border-color: #bfa37a; 
+    box-shadow: 0 12px 35px rgba(90, 75, 92, 0.08);
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(191, 163, 122, 0.25);
+}
+
+.customer-name {
+    color: #a05e5e;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* 下拉更新狀態選單 */
+.status-select {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 4px 12px;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 12px;
+    background-color: #faf9f6;
+    color: #5a4b5c;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.status-select:focus {
+    border-color: #bfa37a;
+    background-color: #ffffff;
+}
+
+/* 歷史卡片內置紅色小刪除按鈕 */
+.customer-booking-card .btn-delete {
+    padding: 4px 12px;
+    border-radius: 12px;
+    background-color: #a05e5e;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s ease;
+    font-family: inherit;
+}
+
+.customer-booking-card .btn-delete:hover {
+    background-color: #844c4c;
+}
+
+.card-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 20px;
+    font-size: 14px;
+}
+
+.info-item b {
+    margin-right: 6px;
+    color: #9ca3af;
+    font-weight: normal;
+}
+
+.customer-message-box {
+    padding: 14px 18px;
+    border-left: 3px solid rgba(90, 75, 92, 0.3);
+    border-radius: 8px;
+    background-color: #faf9f6;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   ➕ 2. 後台手動新增補單控制表單區（🛠️ 修正：完全恢復垂直欄位排版樣式）
+   ========================================================================== */
+.add-booking-form-box {
+    width: 100%;
+    padding: 40px;                               
+    border: 1px solid rgba(191, 163, 122, 0.25); 
+    border-radius: 20px;                         
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(90, 75, 92, 0.05);
+    box-sizing: border-box;
+}
+
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 📄 100% 採用前台與通用表單元件間距 */
+}
+
+/* 🛠️ 修復核心：讓每一個欄位都成為獨立的垂直堆疊 (Column) 容器，不左右分欄 */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-label {
+    color: #5a4b5c;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px; 
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 12px; /* 12px 柔和圓角輸入框 */
+    outline: none;
+    background-color: #faf9f6;
+    font: inherit;
+    font-size: 15px;
+    color: #5a4b5c;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: #bfa37a; 
+    background-color: #ffffff;
+}
+
+/* ==========================================================================
+   📅 3. 仿前台點選式時段自適應網格
+   ========================================================================== */
+.time-slots-section {
+    margin-bottom: 5px;
+}
+
+.slots-title {
+    margin-bottom: 12px;
+    color: #5a4b5c;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#slots-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); /* 精準網格排列卡片 */
+    gap: 12px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 時段卡片按鈕基本美學 */
+.time-slot-btn {
+    padding: 12px 10px;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 12px; 
+    background-color: #faf9f6;
+    cursor: pointer;
+    text-align: center;
+    color: #5a4b5c;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.time-slot-btn:hover:not(:disabled) {
+    border-color: #bfa37a;
+    background-color: #ffffff;
+}
+
+/* 🌈 核心焦點：選中時完美呈現前台專屬漸層幻彩 (e0c3fc ➔ 8ec5fc) */
+.time-slot-btn.active {
+    border-color: #bfa37a;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important; 
+    box-shadow: 0 4px 15px rgba(142, 197, 252, 0.45);
+    color: #ffffff !important;
+}
+
+/* 額滿/禁用狀態 */
+.time-slot-btn.disabled {
+    background-color: #e5e7eb !important;
+    color: #9ca3af !important;
+    cursor: not-allowed;
+    text-decoration: line-through;
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.slot-date {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-bottom: 2px;
+}
+
+.slot-time {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.slots-loading-text {
+    grid-column: 1 / -1;
+    color: #9ca3af;
+    font-size: 14px;
+    font-style: italic;
+    margin: 5px 0;
+    text-align: left;
+}
+
+/* ==========================================================================
+   🔘 4. 底部提交主按鈕（100% 對齊 .primary-button 樣式與狀態）
+   ========================================================================== */
+.submit-booking-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 14px; /* 14px 全站主按鈕大圓角 */
+    background: #e5e7eb; /* 預設禁用未選狀態顏色 */
+    box-shadow: none;
+    color: #9ca3af;
+    font-family: inherit;
+    font-weight: bold;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* 當表單認證完畢後，自動套上與前台一致的幻彩極光漸層 */
+.booking-form:valid .submit-booking-btn, 
+.submit-booking-btn:not(:disabled) {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+    box-shadow: 0 4px 15px rgba(142, 197, 252, 0.45) !important;
+    cursor: pointer !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   📱 5. RWD 手機響應式斷點
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .add-booking-form-box {
+        padding: 30px 20px; 
+    }
+
+    .card-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .card-header-row div {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .card-info-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .customer-booking-card {
+        padding: 18px 20px;
+    }
+
+    #slots-container {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); 
+        gap: 8px;
+    }
+}

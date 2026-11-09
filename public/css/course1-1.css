@@ -1,0 +1,251 @@
+/* ==========================================================================
+   精準還原線稿排版樣式表 ( course1-1.html 專用 )
+   ========================================================================== */
+
+/* 覆蓋原有 site-page-main 的外距，為頂部 240px 大導覽列留出足夠空間 */
+.course-one-pass-main {
+    margin-top: 60px !important;
+    padding-bottom: 100px !important;
+    background-color: #F8F5ED; /* 保持溫潤大地色 */
+}
+
+/* 還原線稿正中央大容器：大寬度、極大內邊距、溫柔留白 */
+.course-wireframe-card {
+    width: 92%;
+    max-width: 960px; /* 加寬至 960px 讓橫向空間更舒展 */
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.75); /* 輕微透明具有洗鍊感 */
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 20px;
+    padding: 70px 80px 50px; /* 大幅度增加左右留白 */
+    box-shadow: 0 12px 40px rgba(90, 75, 92, 0.03);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 頂部視覺圖片小字提示 */
+.card-image-label {
+    font-size: 13px;
+    color: #a58e61;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 標題區排版 */
+.wireframe-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.wireframe-main-title {
+    font-size: 34px; /* 放大標題 */
+    font-weight: 500;
+    color: #48533C;
+    letter-spacing: 6px;
+    margin: 0;
+}
+
+.wireframe-subtitle {
+    font-size: 15px;
+    color: #A58E61;
+    letter-spacing: 3px;
+    margin-top: 8px;
+    font-family: Arial, sans-serif;
+}
+
+/* 各大區塊與線稿對齊 (極簡乾淨) */
+.wireframe-section {
+    margin-bottom: 45px;
+    width: 100%;
+}
+
+.wireframe-section-title {
+    font-size: 19px;
+    font-weight: 500;
+    color: #48533C;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(72, 83, 60, 0.1);
+    padding-bottom: 10px;
+}
+
+/* 介紹內文 */
+.wireframe-intro-content p {
+    font-size: 15.5px;
+    color: #5a4b5c;
+    line-height: 1.9;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+/* 核心關鍵：四個初階級次強制作為「單欄由上到下長條排列」 */
+.wireframe-level-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* 方框之間的上下間距 */
+}
+
+/* 還原線稿的矩形白底方框 */
+.wireframe-level-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #ffffff;
+    border: 1px solid rgba(90, 75, 92, 0.12);
+    border-radius: 8px;
+    padding: 24px 30px; /* 加大方框內邊距 */
+    transition: all 0.3s ease;
+}
+
+.wireframe-level-item:hover {
+    border-color: #48533C;
+    transform: translateX(4px); /* 微幅右移增添互動感 */
+}
+
+/* 數字灰色方塊 */
+.level-badge {
+    font-size: 13px;
+    font-weight: bold;
+    color: #5a4b5c;
+    background-color: #f0ebe3;
+    padding: 4px 10px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.level-text-content h3 {
+    font-size: 16.5px;
+    font-weight: 500;
+    color: #48533C;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.level-text-content p {
+    font-size: 14.5px;
+    color: #6e684f;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* 核心精神提示框 (置中、虛線、典雅) */
+.wireframe-spirit-box {
+    background-color: #fdfcfb;
+    border: 1px dashed rgba(191, 163, 122, 0.5);
+    padding: 35px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.wireframe-spirit-box h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #48533C;
+    margin-bottom: 12px;
+    letter-spacing: 2px;
+}
+
+.wireframe-spirit-box p {
+    font-size: 15.5px;
+    color: #5a4b5c;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* 底部按鈕區：寬度與線稿的橫向大按鈕一致 */
+.wireframe-footer-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 50px;
+    width: 100%;
+}
+
+/* 白底次要按鈕：了解官方課程介紹 */
+.wireframe-btn-secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px; /* 設定適中的按鈕長度 */
+    padding: 14px 24px;
+    border: 1px solid #5a4b5c;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #5a4b5c;
+    font-size: 15px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.wireframe-btn-secondary:hover {
+    background-color: #fbfbfa;
+    border-color: #A58E61;
+    color: #A58E61;
+}
+
+/* 灰底/填色主要按鈕：立即報名 */
+.wireframe-btn-primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 24px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e5e3dd; /* 還原線稿輕微內斂的灰底感 */
+    color: #48533C;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.wireframe-btn-primary:hover {
+    background-color: #48533C;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(72, 83, 60, 0.2);
+}
+
+.wireframe-back-home {
+    margin-top: 15px;
+}
+.wireframe-back-home a {
+    color: #9e847a;
+    font-size: 14px;
+    text-decoration: none;
+}
+.wireframe-back-home a:hover {
+    text-decoration: underline;
+}
+
+/* 行動裝置極致縮放 (RWD) */
+@media screen and (max-width: 768px) {
+    .course-wireframe-card {
+        width: 94%;
+        padding: 45px 24px 30px;
+    }
+
+    .wireframe-main-title {
+        font-size: 24px;
+    }
+
+    .wireframe-level-item {
+        padding: 16px 20px;
+        gap: 14px;
+    }
+
+    .wireframe-btn-secondary,
+    .wireframe-btn-primary {
+        max-width: 100%;
+    }
+}

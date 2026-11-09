@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>預約單管理 - 娜娜問路居後台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-booking.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-booking.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列（🌟 外殼與前端完全同款，功能鍵精確置換為您的五大模組） -->
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <!-- 🔥 隱藏入口優化：點擊此處 Logo 文字將會觸發管理者帳密驗證，不需手打網址 -->
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <!-- 2. 獨立內容展示區（🌟 100% 仿照 about.html / calendar.html 容器階層） -->
+    <main class="site-page-main">
+        <div class="content-card">
+
+            <!-- 小標籤標題（完美對齊卡片左上角） -->
+            <div class="card-label">預約單管理</div>
+
+            <!-- 垂直佈局容器（承襲自 about-muna-layout 結構） -->
+            <div class="booking-muna-layout">
+
+                <!-- 數據總覽小列 -->
+                <div class="booking-summary-bar">
+                    目前共有 <span id="totalBookingCount" style="color: #a05e5e; font-weight: bold;">0</span> 筆諮詢預約紀錄
+                </div>
+
+                <!-- 🌟 預約名單容器：等一下由 JavaScript 自動將客人的卡片一塊一塊注入到這裡 -->
+                <div class="booking-list-container" id="bookingList">
+                    <div class="booking-loading-text">正在從 Firebase 載入預約名單...</div>
+                </div>
+
+                <!-- ➕ 新增預約單表單區塊 -->
+                <div class="add-booking-form-box"
+                    style="background: #fdfaf7; border: 1px solid #e2d2ca; padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <div style="font-weight: 500; font-size: 16px; color: #4a3e3d; margin-bottom: 15px;">➕ 手動新增諮詢預約單
+                    </div>
+                    <form class="booking-form">
+
+                    <!-- 📅 時段選取區塊（由 booking.js 自動動態生成按鈕） -->
+                    <div class="form-group time-slots-section">
+                        <label class="form-label slots-title">請選擇預約時段</label>
+                        <div id="slots-container">
+                            <p class="slots-loading-text">正在加載可預約時段...</p>
+                        </div>
+                        <!-- 隱藏欄位：記錄被選中的時段 ID -->
+                        <input type="hidden" id="selected-slot-id" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">您的姓名</label>
+                        <input type="text" id="booking-name" class="form-input" placeholder="請輸入您的真實姓名或稱呼" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">電子郵件信箱</label>
+                        <input type="email" id="booking-email" class="form-input" placeholder="example@email.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">聯絡電話</label>
+                        <input type="tel" id="booking-tel" class="form-input" placeholder="0912345678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">想諮詢或療癒的狀態</label>
+                        <textarea id="booking-message" class="form-input" rows="5"
+                            placeholder="請簡述您目前遇到的困擾、或特別想透過這段諮詢獲得什麼樣的協助與引導（這能讓 Muna 更全面地準備您的諮詢內容）" required></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="primary-button submit-booking-btn">請先選擇上方時段</button>
+                </form>
+                </div>
+
+                <!-- 頁尾返回連結 -->
+                <div class="page-footer">
+                    <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. 右下角懸浮面板 -->
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+
+</html>

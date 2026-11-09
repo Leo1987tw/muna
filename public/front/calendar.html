@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行事曆 - 娜娜問路居</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calendar.css">
+    <script type="module" src="../js/calendar.js"></script>
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body class="site-page calendar-page">
+
+    <!-- 1. 頂部固定導覽列（大橫幅風格） -->
+
+    <!-- 2. 獨立內容展示區 -->
+    <main class="site-page-main calendar-page-main">
+        <div class="content-card">
+
+            <!-- 小標籤標題 -->
+            <div class="card-label">預約行事曆</div>
+
+            <!-- 垂直置中佈局容器 -->
+            <div class="calendar-muna-layout">
+
+                <!-- 頂部月份控制盒（在畫面正中央水平置中） -->
+                <div class="calendar-header-control">
+                    <button class="calendar-btn" id="prevMonthBtn">⟵ 上個月</button>
+                    <div id="calendarMonthTitle">2026 年 10 月</div>
+                    <button class="calendar-btn" id="nextMonthBtn">下個月 ⟶</button>
+                </div>
+                
+                <!-- 下方日曆數字網格（百分之百相對於白色大卡片完全水平置中） -->
+                <div class="calendar-grid-wrapper">
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- 星期標籤 -->
+                        <div class="weekday-label">日</div>
+                        <div class="weekday-label">一</div>
+                        <div class="weekday-label">二</div>
+                        <div class="weekday-label">三</div>
+                        <div class="weekday-label">四</div>
+                        <div class="weekday-label">五</div>
+                        <div class="weekday-label">六</div>
+                        
+                        <!-- 日期數字格由 JavaScript 自動注入 -->
+                    </div>
+                </div>
+
+                <!-- 頁尾返回連結 -->
+                <div class="page-footer">
+                    <a href="../index.html" class="back-home-link">← 返回網頁首頁</a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. 右下角懸浮面板 -->
+</body>
+
+</html>

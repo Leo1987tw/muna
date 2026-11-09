@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 關於我管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-about.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-about.js"></script>
+</head>
+
+<body class="site-page">
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <main class="site-page-main">
+        <div class="content-card admin-about-card">
+            <div class="card-label">關於我管理</div>
+            <p class="admin-about-intro">編輯前台「關於 Muna」的兩段介紹與照片。每段可單獨上傳一張圖片，未選擇新照片時會保留目前圖片。</p>
+
+            <form id="aboutForm">
+                <fieldset id="aboutFormFields" disabled>
+                    <section class="about-edit-section" aria-labelledby="aboutSection1Title">
+                        <h2 class="section-title" id="aboutSection1Title">第一段介紹</h2>
+                        <div class="about-edit-grid">
+                            <div class="about-image-editor">
+                                <img id="aboutImagePreview1" class="about-image-preview" src="../images/about1.jpg"
+                                    alt="第一段介紹目前使用的照片">
+                                <label class="admin-input-group" for="aboutImageInput1">
+                                    <span>更換第一張照片</span>
+                                    <input type="file" id="aboutImageInput1" class="admin-form-input" accept="image/*">
+                                    <small>為符合 Firestore 單筆文件容量限制，兩張圖片各請控制在 300KB 以下。</small>
+                                </label>
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="aboutDescription1">第一段文字描述</label>
+                                <textarea id="aboutDescription1" class="admin-form-input" rows="7" maxlength="6000"
+                                    required></textarea>
+                                <small>換行會在前台分成新的段落。</small>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="about-edit-section" aria-labelledby="aboutSection2Title">
+                        <h2 class="section-title" id="aboutSection2Title">第二段介紹</h2>
+                        <div class="about-edit-grid">
+                            <div class="about-image-editor">
+                                <img id="aboutImagePreview2" class="about-image-preview" src="../images/about2.jpg"
+                                    alt="第二段介紹目前使用的照片">
+                                <label class="admin-input-group" for="aboutImageInput2">
+                                    <span>更換第二張照片</span>
+                                    <input type="file" id="aboutImageInput2" class="admin-form-input" accept="image/*">
+                                    <small>為符合 Firestore 單筆文件容量限制，兩張圖片各請控制在 300KB 以下。</small>
+                                </label>
+                            </div>
+                            <div class="admin-input-group">
+                                <label for="aboutDescription2">第二段文字描述</label>
+                                <textarea id="aboutDescription2" class="admin-form-input" rows="7" maxlength="6000"
+                                    required></textarea>
+                                <small>換行會在前台分成新的段落。</small>
+                            </div>
+                        </div>
+                    </section>
+
+                    <button type="submit" id="btnSaveAbout" class="admin-action-btn">儲存關於我內容</button>
+                </fieldset>
+            </form>
+            <p id="aboutStatus" class="about-status" role="status" aria-live="polite">正在載入目前的關於我內容...</p>
+
+            <div class="page-footer">
+                <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr"
+            target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+/* Video settings page */
+.video-admin-card {
+    width: 90%;
+    max-width: 900px;
+    padding: 40px;
+}
+
+.video-admin-header {
+    margin-bottom: 30px;
+}
+
+.video-form-section,
+.video-preview-section {
+    margin-bottom: 36px;
+    padding: 28px;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 12px;
+    background: #faf9f6;
+}
+
+.video-admin-card .section-title {
+    margin: 0 0 22px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(160, 94, 94, 0.2);
+    color: #a05e5e;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.admin-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.admin-input-group label {
+    color: #5a4b5c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.admin-form-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid rgba(191, 163, 122, 0.35);
+    border-radius: 8px;
+    background: #ffffff;
+    color: #5a4b5c;
+    font: inherit;
+    letter-spacing: 0;
+}
+
+.admin-form-input:focus {
+    border-color: #a05e5e;
+    outline: 3px solid rgba(160, 94, 94, 0.12);
+}
+
+.video-field-hint {
+    margin: 0;
+    color: #8b7b79;
+    font-size: 13px;
+}
+
+.video-admin-card .admin-action-btn {
+    width: 100%;
+    padding: 13px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #5a4b5c;
+    color: #ffffff;
+    font: inherit;
+    cursor: pointer;
+}
+
+.video-admin-card .admin-action-btn:hover:not(:disabled) {
+    background: #a05e5e;
+}
+
+.video-admin-card .admin-action-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.video-form-message {
+    min-height: 1.5em;
+    margin: 12px 0 0;
+    color: #48533c;
+    font-size: 14px;
+}
+
+.video-form-message[data-error="true"] {
+    color: #a64242;
+}
+
+.video-preview-frame {
+    display: grid;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 8px;
+    background: #f1efeb;
+    color: #786d70;
+    text-align: center;
+}
+
+.video-preview-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-preview-frame p {
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .video-admin-card {
+        width: 92%;
+        padding: 24px 20px;
+    }
+
+    .video-form-section,
+    .video-preview-section {
+        padding: 20px;
+    }
+}

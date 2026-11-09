@@ -1,0 +1,325 @@
+.calendar-muna-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.admin-notice-bar {
+    width: 100%;
+    max-width: 600px;
+    padding: 12px 20px;
+    border-left: 4px solid #a05e5e;
+    border-radius: 4px;
+    background-color: #f5eff2;
+    color: #5a4b5c;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.calendar-header-control {
+    width: 100%;
+    max-width: 600px;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 12px;
+    background-color: #faf9f6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+}
+
+.calendar-btn {
+    padding: 6px 16px;
+    border: 1px solid rgba(90, 75, 92, 0.15);
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #5a4b5c;
+    cursor: pointer;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.calendar-btn:hover {
+    border-color: #bfa37a;
+    color: #bfa37a;
+}
+
+#calendarMonthTitle {
+    color: #a05e5e;
+    font-size: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.calendar-grid-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar-grid {
+    width: 100%;
+    max-width: 550px;
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 16px 12px;
+    text-align: center;
+}
+
+.weekday-label {
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.calendar-day {
+    min-height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: #333333;
+    cursor: pointer;
+    font-size: 15px;
+    transition: all 0.2s ease;
+}
+
+.calendar-day:hover:not(.empty) {
+    background-color: rgba(191, 163, 122, 0.12);
+    color: #bfa37a;
+}
+
+.calendar-day.empty {
+    height: 0;
+    overflow: hidden;
+    cursor: default;
+}
+
+.calendar-day.full {
+    color: #d1d5db;
+    text-decoration: line-through;
+}
+
+.calendar-day.selected-day {
+    border: 2px solid #bfa37a;
+    background-color: rgba(191, 163, 122, 0.05);
+}
+
+.calendar-day.heat-light {
+    background-color: #f7ede2;
+    color: #a05e5e;
+    font-weight: bold;
+}
+
+.calendar-day.heat-medium {
+    background-color: #e2dbf0;
+    color: #5a4b5c;
+    font-weight: bold;
+}
+
+.calendar-day.heat-high {
+    background-color: #f5d6d6;
+    color: #a05e5e;
+    font-weight: bold;
+}
+
+.admin-toast-panel {
+    width: 100%;
+    max-width: 600px;
+    padding: 25px 30px;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 20px rgba(90, 75, 92, 0.03);
+    animation: toast-slide-down 0.3s ease-out;
+}
+
+/* 🟢 狀況三：當天有設定時段，且目前完全沒有人預約（全新有空） */
+.calendar-day.is-available {
+    background-color: #f5fcf6;
+    border: 1px solid rgba(76, 175, 80, 0.2);
+    color: #2e7d32;
+}
+
+/* 🟡 狀況二：當天有人預約了，但時段名額還沒全滿（比較忙碌） */
+.calendar-day.is-busy {
+    background-color: #fff9eb;
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    color: #b78103;
+    font-weight: bold;
+}
+
+/* 🔴 狀況一：當天所有時段名額全部被搶光或手動填滿了（完全客滿） */
+.calendar-day.is-full {
+    background-color: #fdf3f2;
+    border: 1px solid rgba(244, 67, 54, 0.25);
+    color: #c62828;
+    text-decoration: line-through;
+    /* 加上客滿劃線 */
+    opacity: 0.7;
+}
+
+@keyframes toast-slide-down {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.toast-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed rgba(191, 163, 122, 0.2);
+}
+
+.toast-date-header {
+    color: #a05e5e;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.toast-close-x {
+    color: #9ca3af;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.toast-close-x:hover {
+    color: #a05e5e;
+}
+
+.toast-section-title {
+    margin-bottom: 10px;
+    color: #5a4b5c;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.toast-slots-scroll-box {
+    max-height: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 5px;
+}
+
+.toast-form-divider {
+    padding-top: 15px;
+    border-top: 1px dashed rgba(191, 163, 122, 0.2);
+}
+
+.toast-add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.toast-form-grid {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+}
+
+.form-input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.form-input-group label {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.form-input-group input {
+    width: 100%;
+    padding: 7px 12px;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 7px;
+    outline: none;
+    color: #5a4b5c;
+    font-size: 14px;
+}
+
+.form-input-group input:focus {
+    border-color: #bfa37a;
+}
+
+.toast-submit-btn {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    box-shadow: 0 4px 10px rgba(142, 197, 252, 0.3);
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.toast-submit-btn:hover {
+    opacity: 0.9;
+}
+
+@media screen and (max-width: 768px) {
+    .admin-notice-bar {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .calendar-header-control {
+        height: 120px;
+        padding: 0 15px;
+    }
+
+    #calendarMonthTitle {
+        font-size: 16px;
+    }
+
+    .calendar-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .calendar-grid {
+        gap: 6px;
+    }
+
+    .calendar-day {
+        min-height: 34px;
+        font-size: 13px;
+    }
+
+    .admin-toast-panel {
+        padding: 20px;
+    }
+
+    .toast-form-grid {
+        flex-direction: column;
+        gap: 8px;
+    }
+}

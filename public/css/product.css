@@ -1,0 +1,274 @@
+/* ==========================================================================
+   娜娜問路居 - 前台商品展示列表專用 CSS (product.css)
+   ========================================================================== */
+
+/* 1. 商品型錄版面 */
+.product-page .content-card {
+    max-width: 900px;
+    padding: 50px 40px;
+}
+
+.product-content-layout {
+    width: 100%;
+    margin-top: 46px;
+}
+
+/* 核心：型錄大容器，多件商品陳列時的呼吸間距 */
+#frontProductContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+    width: 100%;
+}
+
+.product-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 0.77fr) minmax(0, 1fr);
+    grid-template-areas: "media details";
+    align-items: start;
+    gap: 16px 50px;
+}
+
+.product-media-column {
+    grid-area: media;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+.product-media-box {
+    height: 280px;
+}
+
+.product-text-box {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    min-width: 0;
+}
+
+.product-img-placeholder {
+    width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 16px;
+    background-color: #faf9f6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    color: #5a4b5c;
+    font-size: 14px;
+}
+
+.product-img-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 完美填滿縮圖外框 */
+}
+
+.product-info-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+.product-meta-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.product-tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.product-description {
+    min-width: 0;
+    color: #5a4b5c;
+    font-size: 16px;
+}
+
+.product-name-title {
+    flex: 1;
+    min-width: 0;
+    margin: 0;
+    color: #a05e5e;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.product-description p {
+    margin: 0 0 12px;
+}
+
+.product-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* 2. ✨ 動態核心：分類、膠囊徽章與特價排版樣式 */
+.product-meta-category {
+    font-size: 12px;
+    color: #9e847a;
+    background: #faf7f5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(191, 163, 122, 0.15);
+    display: inline-block;
+}
+
+.product-tag-badge {
+    background: #f4ece9;
+    color: #a05e5e;
+    padding: 3px 12px;
+    font-size: 11px;
+    border-radius: 50px;
+    font-weight: 500;
+    border: 1px solid rgba(160, 94, 94, 0.12);
+}
+
+.product-price-wrapper {
+    font-size: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.product-price-line-through {
+    text-decoration: line-through;
+    color: #c4b0a9;
+    font-size: 14px;
+    padding: 7px 10px;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 4px;
+}
+
+.product-price-original {
+    color: #5a4b5c;
+    padding: 7px 10px;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 4px;
+}
+
+.product-price-sale {
+    font-weight: bold;
+    color: #b85c4c;
+    background: #fdf2f0;
+    padding: 7px 10px;
+    border: 1px solid rgba(184, 92, 76, 0.2);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.product-row {
+    position: relative; /* 核心：作為絕對定位的參考母體 */
+    display: flex;
+    margin-bottom: 45px;
+    padding-bottom: 65px; /* 🛑 這行最重要！留白給右下角的按鈕 */
+    border-bottom: 1px solid #f0e6e2;
+}
+
+/* 2. 讓右側文字方塊完整延伸 */
+.product-text-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3. 將按鈕定位容器精準固定在卡片的「右下角」 */
+.product-action-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 15px; /* 控制按鈕離卡片底部的距離 */
+}
+
+/* 4. 把藍色文字徹底改造成「溫暖大地色質感圓角按鈕」 */
+.product-text-box .product-details-link {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #9e847a; /* 配合你全站頂部與標籤的溫暖大地色 */
+    color: #ffffff !important; /* 強制文字變白色，拿掉原本的藍色 */
+    text-decoration: none !important; /* 徹底拔除底線 */
+    font-size: 14px;
+    border-radius: 25px; /* 精緻的柔和圓角 */
+    box-shadow: 0 4px 10px rgba(158, 132, 122, 0.15); /* 輕微的色彩陰影 */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 絲滑互動效果 */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* 5. 滑鼠移上去（Hover）時的上浮與加深視覺 */
+.product-text-box .product-details-link:hover {
+    background-color: #836b61; /* 大地色加深，更有層次 */
+    transform: translateY(-3px); /* 微微向上浮起，引導點擊 */
+    box-shadow: 0 8px 16px rgba(131, 107, 97, 0.25); /* 陰影加深，看起來變立體 */
+}
+
+/* 6. 手指點下去（Active）瞬间的按壓下沉反饋 */
+.product-text-box .product-details-link:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(131, 107, 97, 0.2);
+}
+
+/* ==========================================================================
+   3. 📱 手機端 RWD 響應式微調 (精準繼承您的 768px 標準)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .product-page .content-card {
+        padding: 30px 20px;
+    }
+
+    .product-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "media"
+            "details";
+        gap: 16px;
+        margin-bottom: 0;
+        padding-bottom: 24px;
+    }
+
+    .product-action-wrapper {
+        position: static;
+    }
+
+    .product-media-box,
+    .product-img-placeholder {
+        height: 220px;
+    }
+
+    .product-info-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .product-text-box {
+        gap: 20px;
+    }
+
+    .product-name-title {
+        font-size: 21px;
+    }
+
+    .product-meta-group {
+        justify-content: flex-start;
+    }
+
+    .product-price-wrapper {
+        justify-content: center;
+    }
+}

@@ -1,0 +1,209 @@
+.admin-course-card {
+    max-width: 1000px !important;
+}
+
+.admin-course-intro {
+    margin: 0 0 24px;
+    color: #7a6863;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.course-admin-controls,
+.course-admin-section {
+    margin-bottom: 24px;
+    padding: 26px;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 14px;
+    background: #faf9f6;
+}
+
+.course-admin-section h2 {
+    margin: 0 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(160, 94, 94, 0.2);
+    color: #a05e5e;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.course-admin-fields {
+    border: 0;
+}
+
+.course-admin-fields:disabled {
+    opacity: 0.6;
+}
+
+.course-admin-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.course-admin-image-editor {
+    min-width: 0;
+}
+
+.course-admin-image-preview {
+    display: grid;
+    width: 100%;
+    min-height: 220px;
+    margin-bottom: 16px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 10px;
+    background: #eeecdf;
+    color: #8b7b79;
+}
+
+.course-admin-image-preview img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.course-admin-image-preview p {
+    padding: 16px;
+}
+
+.course-admin-image-editor .admin-input-group {
+    margin-bottom: 14px;
+}
+
+.course-admin-clear-image {
+    padding: 8px 12px;
+    border: 1px solid rgba(160, 94, 94, 0.35);
+    border-radius: 7px;
+    background: #ffffff;
+    color: #a05e5e;
+    cursor: pointer;
+}
+
+.course-admin-clear-image:hover {
+    background: #f8efed;
+}
+
+.course-admin-hint {
+    margin: 6px 0 0;
+    color: #8b7c76;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.course-admin-feedback-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.course-admin-feedback-empty {
+    margin: 0;
+    color: #8b7c76;
+    font-size: 14px;
+}
+
+.course-admin-feedback-item {
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.course-admin-feedback-item img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    margin-bottom: 10px;
+    object-fit: contain;
+    background: #eeecdf;
+}
+
+.course-admin-feedback-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.course-admin-feedback-replace,
+.course-admin-feedback-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 7px 10px;
+    border: 1px solid rgba(160, 94, 94, 0.35);
+    border-radius: 7px;
+    background: #ffffff;
+    color: #a05e5e;
+    cursor: pointer;
+    font: inherit;
+    font-size: 13px;
+}
+
+.course-admin-feedback-replace:hover,
+.course-admin-feedback-remove:hover {
+    background: #f8efed;
+}
+
+.course-admin-feedback-replace input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+}
+
+.course-admin-video-preview {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #eeecdf;
+    color: #8b7c76;
+    text-align: center;
+}
+
+.course-admin-video-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.course-admin-status {
+    min-height: 1.8em;
+    margin-top: 14px;
+    color: #48533c;
+    font-size: 14px;
+    text-align: center;
+}
+
+.course-admin-status[data-state="error"] {
+    color: #a64242;
+}
+
+.admin-course-card .admin-action-btn {
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .admin-course-card {
+        padding: 30px 20px !important;
+    }
+
+    .course-admin-controls,
+    .course-admin-section {
+        padding: 20px;
+    }
+
+    .course-admin-image-grid {
+        grid-template-columns: 1fr;
+    }
+}

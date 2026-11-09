@@ -1,0 +1,112 @@
+.admin-course-card {
+    max-width: 1000px !important;
+}
+
+.course1-admin-heading {
+    margin: 0 0 20px;
+    color: #a05e5e;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.course1-admin-fields {
+    border: 0;
+}
+
+.course1-admin-fields:disabled {
+    opacity: 0.6;
+}
+
+.course1-admin-section {
+    margin-bottom: 24px;
+    padding: 26px;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 14px;
+    background: #faf9f6;
+}
+
+.course1-admin-section h2 {
+    margin: 0 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(160, 94, 94, 0.2);
+    color: #a05e5e;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.course1-admin-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.course1-admin-image {
+    min-width: 0;
+}
+
+.course1-admin-image-preview {
+    display: grid;
+    width: 100%;
+    min-height: 180px;
+    margin-bottom: 14px;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 10px;
+    background: #eeecdf;
+    color: #8b7b79;
+    text-align: center;
+}
+
+.course1-admin-image-preview img {
+    display: block;
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.course1-admin-image-preview p {
+    padding: 16px;
+}
+
+.course1-admin-image .admin-input-group {
+    margin-bottom: 14px;
+}
+
+.course1-admin-hint {
+    margin: 6px 0 0;
+    color: #8b7c76;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.course1-admin-clear-image {
+    padding: 8px 12px;
+    border: 1px solid rgba(160, 94, 94, 0.35);
+    border-radius: 7px;
+    background: #ffffff;
+    color: #a05e5e;
+    cursor: pointer;
+}
+
+.course1-admin-clear-image:hover {
+    background: #f8efed;
+}
+
+.admin-course-card .admin-action-btn {
+    width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+    .admin-course-card {
+        padding: 30px 20px !important;
+    }
+
+    .course1-admin-section {
+        padding: 20px;
+    }
+
+    .course1-admin-image-grid {
+        grid-template-columns: 1fr;
+    }
+}

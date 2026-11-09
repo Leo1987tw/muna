@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 課程頁面管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-about.css">
+    <link rel="stylesheet" href="../css/admin-course.css">
+    <link rel="stylesheet" href="../css/admin-course1.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-course.js"></script>
+    <script type="module" src="../js/admin-course1.js"></script>
+</head>
+<body class="site-page">
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div><img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">娜娜問路居</div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單"><span></span><span></span><span></span></label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <main class="site-page-main">
+        <div class="content-card admin-about-card admin-course-card">
+            <div class="card-label">課程頁面管理</div>
+            <p class="admin-course-intro">選擇課程即可編輯對應頁面的文字與圖片。course1「光的課程」有專屬欄位；其他課程可管理主視覺、YouTube 影片與服務內容。未填欄位會沿用前台預設內容；圖片上傳後會以 Firestore Base64 方式保存，請依各欄位提示控制容量。</p>
+
+            <div class="course-admin-controls">
+                <div class="admin-input-group">
+                    <label for="courseSelect">選擇要編輯的課程</label>
+                    <select id="courseSelect" class="admin-form-input">
+                        <option value="course1">course1｜光的課程</option>
+                        <option value="course2">course2｜預見未來的自己</option>
+                        <option value="course3">course3｜舞台之美</option>
+                        <option value="course4">course4｜蓮花天堂事業指引工作坊</option>
+                        <option value="course5">course5｜身體風水 / 空間風水</option>
+                        <option value="course6">course6｜建立黃金世紀自然法則</option>
+                        <option value="course7">course7｜天啓道鎖工作坊</option>
+                        <option value="course8">course8｜神聖數字排列</option>
+                        <option value="course9">course9｜企業卜卦督導</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="courseStandardEditor">
+            <form id="courseForm">
+                <fieldset id="courseFormFields" class="course-admin-fields" disabled>
+                    <section class="course-admin-section">
+                        <h2>主視覺與頁首文字</h2>
+                        <div class="course-admin-image-grid">
+                            <div class="course-admin-image-editor">
+                                <div class="course-admin-image-preview" id="heroImagePreview"><p>尚未設定主視覺圖片</p></div>
+                                <div class="admin-input-group">
+                                    <label for="heroImageUrl">主視覺圖片網址</label>
+                                    <input type="text" id="heroImageUrl" class="admin-form-input" placeholder="https://... 或 ../images/course-image.jpg">
+                                </div>
+                                <label class="admin-input-group" for="heroImageFile">
+                                    <span>或上傳主視覺圖片</span>
+                                    <input type="file" id="heroImageFile" class="admin-form-input" accept="image/*">
+                                </label>
+                                <button type="button" class="course-admin-clear-image" data-clear-image="hero">移除主視覺圖片</button>
+                                <p class="course-admin-hint">支援 JPG、PNG、WebP，每張不超過 300KB；若同時填圖片網址並上傳，會以新上傳圖片為準。</p>
+                            </div>
+                            <div class="course-admin-image-editor">
+                                <div class="course-admin-image-preview" id="introImagePreview"><p>尚未設定服務圖片</p></div>
+                                <div class="admin-input-group">
+                                    <label for="introImageUrl">服務介紹圖片網址</label>
+                                    <input type="text" id="introImageUrl" class="admin-form-input" placeholder="https://... 或 ../images/course-image.jpg">
+                                </div>
+                                <label class="admin-input-group" for="introImageFile">
+                                    <span>或上傳服務介紹圖片</span>
+                                    <input type="file" id="introImageFile" class="admin-form-input" accept="image/*">
+                                </label>
+                                <button type="button" class="course-admin-clear-image" data-clear-image="intro">移除服務圖片</button>
+                                <p class="course-admin-hint">圖片會依原始比例縮放顯示，不會裁切。</p>
+                            </div>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="englishInput">英文副標</label>
+                            <input type="text" id="englishInput" class="admin-form-input" maxlength="160">
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="subtitleInput">中文標語</label>
+                            <textarea id="subtitleInput" class="admin-form-input" rows="2" maxlength="1000"></textarea>
+                        </div>
+                    </section>
+
+                    <section class="course-admin-section">
+                        <h2>服務介紹與影片</h2>
+                        <div class="admin-input-group">
+                            <label for="introInput">服務介紹文字</label>
+                            <textarea id="introInput" class="admin-form-input" rows="5" maxlength="6000"></textarea>
+                            <p class="course-admin-hint">段落之間請空一行；儲存後會保留分段顯示。</p>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="videoUrlInput">YouTube 影片或 Shorts 網址</label>
+                            <input type="url" id="videoUrlInput" class="admin-form-input" placeholder="https://www.youtube.com/watch?v=... 或 https://youtube.com/shorts/...">
+                            <p class="course-admin-hint">可留空隱藏影片，或輸入一般 YouTube、Shorts 網址及 11 碼影片 ID。</p>
+                        </div>
+                        <div class="course-admin-video-preview" id="videoPreview"><p>填入有效的 YouTube 網址後可預覽影片。</p></div>
+                    </section>
+
+                    <section class="course-admin-section">
+                        <h2>服務內容與適用對象</h2>
+                        <div class="admin-input-group">
+                            <label for="pointsInput">服務內容</label>
+                            <textarea id="pointsInput" class="admin-form-input" rows="6" maxlength="6000"></textarea>
+                            <p class="course-admin-hint">每一行會顯示為一個項目。</p>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="audienceInput">適用對象</label>
+                            <textarea id="audienceInput" class="admin-form-input" rows="6" maxlength="6000"></textarea>
+                            <p class="course-admin-hint">每一行會顯示為一個項目。</p>
+                        </div>
+                    </section>
+
+                    <section class="course-admin-section">
+                        <h2>方案、回饋與預約</h2>
+                        <div class="admin-input-group">
+                            <label for="formatInput">服務方式與價格</label>
+                            <textarea id="formatInput" class="admin-form-input" rows="3" maxlength="2000"></textarea>
+                            <p class="course-admin-hint">輸入換行即可分段；儲存後前台會保留換行。</p>
+                        </div>
+                        <div class="admin-input-group">
+                            <label for="feedbackImagesInput">學員回饋照片</label>
+                            <input type="file" id="feedbackImagesInput" class="admin-form-input" accept="image/*" multiple>
+                            <p class="course-admin-hint">可一次選擇多張照片；每張不超過 300KB，所有回饋照片合計不可超過 700KB。儲存後會在前台以輪播方式呈現。</p>
+                        </div>
+                        <div id="feedbackImagesList" class="course-admin-feedback-list" aria-live="polite"></div>
+                        <div class="admin-input-group">
+                            <label for="bookingTextInput">預約方式說明</label>
+                            <textarea id="bookingTextInput" class="admin-form-input" rows="3" maxlength="2000"></textarea>
+                        </div>
+                    </section>
+
+                    <button type="submit" id="saveCourseButton" class="admin-action-btn">儲存課程頁面</button>
+                </fieldset>
+            </form>
+            <p id="courseStatus" class="course-admin-status" role="status" aria-live="polite">正在確認管理員權限...</p>
+            </div>
+
+            <section id="course1EditorPanel" hidden aria-labelledby="course1AdminTitle">
+                <h2 id="course1AdminTitle" class="course1-admin-heading">光的課程｜文字與圖片</h2>
+                <form id="course1Form">
+                    <fieldset id="course1FormFields" class="course1-admin-fields" disabled>
+                        <div id="course1Editor"></div>
+                        <button type="submit" id="saveCourse1Button" class="admin-action-btn">儲存光的課程內容</button>
+                    </fieldset>
+                </form>
+                <p id="course1Status" class="course-admin-status" role="status" aria-live="polite">正在確認管理員權限...</p>
+            </section>
+
+            <div class="page-footer">
+                <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

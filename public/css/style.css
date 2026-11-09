@@ -1,0 +1,1151 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+    background-color: #F8F5ED;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #f7f5f0;
+    color: #5a4b5c;
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 0.12em;
+    line-height: 1.8;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+body.home-page,
+body.login-page {
+    height: 100vh;
+    overflow: hidden;
+}
+
+body.site-page {
+    height: auto;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.site-page-main {
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 60px 25px;
+    background: linear-gradient(rgba(108, 92, 128, 0.2), rgba(247, 245, 240, 0.4)),
+        url('../upload/S__9289790.jpg') no-repeat center center;
+    background-size: contain;
+    box-shadow: 0 4px 20px rgba(142, 120, 150, 0.08);
+    z-index: 1000;
+}
+
+.home-page .navbar,
+.login-page .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.nav-logo {
+    align-self: flex-start;
+    color: #48533C;
+    font-size: 36px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-decoration: none;
+    text-shadow: 1px 1px 10px rgba(74, 60, 85, 0.5);
+    transition: all 0.3s ease;
+}
+
+.nav-logo>div {
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    margin-bottom: 8px;
+}
+
+.logo-img {
+    display: inline-block;
+    margin-right: 12px;
+    width: 60px;
+}
+
+.nav-logo p {
+    font-size: 16px;
+    letter-spacing: 0.12em;
+    color: #A58E61;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.navbar .menu-switcher {
+    display: none;
+}
+
+.nav-links {
+    align-self: flex-end;
+    display: flex;
+    gap: 30px;
+    padding: 10px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+/* 下拉選單外層容器定位 */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.submenu-switcher {
+    display: none;
+}
+
+/* 下拉選單基礎樣式 */
+.dropdown-menu {
+    display: none;
+    /* 預設隱藏 */
+    position: absolute;
+    top: 100%;
+    /* 緊貼在導覽列正下方 */
+    left: 50%;
+    transform: translateX(-50%);
+    /* 居中對齊 */
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
+    /* 柔和陰影 */
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 當滑鼠懸停在容器上時，顯示選單 */
+.nav-dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+}
+
+/* 下拉選單內部的每一個選項 */
+.dropdown-menu a {
+    color: #4a4a4a;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+    font-family: 'Noto Serif TC', serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    /* 防止文字斷行 */
+}
+
+/* 選項滑鼠懸停效果：融入網頁粉紫調 */
+.dropdown-menu a:hover {
+    background-color: #f5eff7;
+    /* 淡淡的粉紫底色 */
+    color: #b19cd9;
+    /* 療癒紫文字 */
+}
+
+.nav-item {
+    color: #626956;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    color: #bfa37a;
+    transform: translateY(-1px);
+}
+
+.nav-back-link {
+    align-self: flex-end;
+    padding: 10px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    color: #5a4b5c;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-back-link:hover {
+    color: #bfa37a;
+}
+
+.nav-back-link span {
+    margin-right: 4px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1100px) {
+    .admin-navbar .menu-switcher {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+
+    .admin-navbar .menu-toggle {
+        position: absolute;
+        right: 32px;
+        bottom: 22px;
+        z-index: 1020;
+        display: flex;
+        width: 28px;
+        height: 20px;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .admin-navbar .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        border-radius: 2px;
+        background-color: #5a4b5c;
+        transition: all 0.3s ease;
+    }
+
+    .admin-navbar .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1005;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        padding: 40px;
+        overflow-y: auto;
+        border: 0;
+        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    .admin-navbar .menu-switcher:checked ~ .nav-links {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .admin-navbar .menu-switcher:checked ~ .menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .admin-navbar .menu-switcher:checked ~ .menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .admin-navbar .menu-switcher:checked ~ .menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -7px);
+    }
+
+    .admin-navbar .nav-item {
+        width: 100%;
+        padding: 6px 0;
+        font-size: 18px;
+        text-align: center;
+    }
+}
+
+.page-scroll-container {
+    height: 100%;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.site-page .not-found-main {
+    min-height: 100vh;
+    align-items: center;
+    margin-top: 0;
+    padding: 32px 0;
+}
+
+.site-page .content-card.not-found-card {
+    width: min(92%, 620px);
+    padding: 48px 40px;
+    text-align: center;
+}
+
+.not-found-code {
+    margin: 8px 0;
+    color: #48533c;
+    font-size: clamp(56px, 15vw, 96px);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
+.not-found-title {
+    margin-bottom: 12px;
+    color: #a05e5e;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.not-found-copy {
+    margin-bottom: 28px;
+    color: #9e847a;
+    font-size: 15px;
+}
+
+.not-found-link {
+    display: inline-flex;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 24px;
+    background-color: #48533c;
+    color: #ffffff;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.not-found-link:hover {
+    background-color: #626f54;
+}
+
+.page-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 240px;
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+}
+
+.content-card {
+    position: relative;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(90, 75, 92, 0.05);
+}
+
+.home-page .content-card {
+    width: 90%;
+    max-width: 800px;
+    height: 52vh;
+    overflow: hidden;
+}
+
+.home-page #photoPage .content-card {
+    width: fit-content;
+    max-width: min(90vw, 800px);
+    height: fit-content;
+}
+
+.site-page .content-card {
+    width: 90%;
+    max-width: 900px;
+    padding: 50px 40px;
+}
+
+.login-page .content-card {
+    position: absolute;
+    top: calc(50% + 120px);
+    left: 50%;
+    width: 90%;
+    max-width: 500px;
+    padding: 60px 45px 50px;
+    transform: translate(-50%, -50%);
+}
+
+.card-label {
+    padding: 6px 16px;
+    border-radius: 30px;
+    background-color: #48533C;
+    backdrop-filter: blur(5px);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.home-page .card-label,
+.login-page:not(.front-login-page) .card-label {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    z-index: 5;
+}
+
+.site-page .card-label {
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.login-page:not(.front-login-page) .card-label {
+    margin-bottom: 0;
+}
+
+.page-footer {
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(191, 163, 122, 0.15);
+    text-align: center;
+}
+
+.back-home-link {
+    color: #5a4b5c;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back-home-link:hover {
+    text-decoration: underline;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    color: #5a4b5c;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 12px;
+    outline: none;
+    background-color: #faf9f6;
+    font: inherit;
+    transition: all 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: #bfa37a;
+    background-color: #ffffff;
+}
+
+.primary-button {
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    box-shadow: 0 4px 15px rgba(142, 197, 252, 0.45);
+    color: #ffffff;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 197, 252, 0.6);
+}
+
+.primary-button:disabled {
+    transform: none;
+    background: #e5e7eb;
+    box-shadow: none;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.floating-panel {
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    z-index: 1000;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 12px;
+    border: 1px solid rgba(191, 163, 122, 0.4);
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 35px rgba(90, 75, 92, 0.08);
+    animation: spiritual-pulse 3s infinite ease-in-out;
+}
+
+.social-btn {
+    width: 74px;
+    height: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(90, 75, 92, 0.15);
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    color: #5a4b5c;
+    font-size: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.social-btn::before {
+    content: "";
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
+    background-color: currentColor;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+.floating-panel .social-btn:first-child::before {
+    background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    -webkit-mask-image: url("../images/icon-instagram.svg");
+    mask-image: url("../images/icon-instagram.svg");
+}
+
+.floating-panel .social-btn:nth-child(2)::before {
+    background-color: #1877f2;
+    -webkit-mask-image: url("../images/icon-facebook.svg");
+    mask-image: url("../images/icon-facebook.svg");
+}
+
+.social-btn:hover {
+    transform: scale(1.08);
+    border-color: #5a4b5c;
+    background-color: #5a4b5c;
+    color: #ffffff;
+}
+
+.pay-btn {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    border-radius: 14px;
+    background-color: #48533C;
+    box-shadow: 0 4px 15px rgba(142, 197, 252, 0.45);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 197, 252, 0.6);
+}
+
+@keyframes spiritual-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 10px 30px rgba(90, 75, 92, 0.06);
+    }
+
+    50% {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(191, 163, 122, 0.2);
+    }
+}
+
+.carousel-container {
+    position: relative;
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+}
+
+#photoCarouselSlides {
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+}
+
+.carousel-slide {
+    display: none;
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+.media-placeholder {
+    width: fit-content;
+    max-width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.photo-feature-image {
+    display: block;
+    max-width: min(90vw, 798px);
+    max-height: 52vh;
+    width: auto;
+    height: auto;
+}
+
+.bg-img1 {
+    background: linear-gradient(135deg, #e8c3b9, #be93c5);
+}
+
+.bg-img2 {
+    background: linear-gradient(135deg, #be93c5, #7bc6cc);
+}
+
+.bg-img3 {
+    background: linear-gradient(135deg, #a8ff78, #78ffd6);
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    transform: translateY(-50%);
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    color: #5a4b5c;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.arrow:hover {
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.arrow-left {
+    left: 15px;
+}
+
+.arrow-right {
+    right: 15px;
+}
+
+.video-box,
+.map-box {
+    width: 100%;
+    height: 100%;
+}
+
+.video-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #EAF0E9 0%, #D4DDD3 100%);
+    color: #5a4b5c;
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.map-box {
+    border: 0;
+}
+
+.home-page #mapPage .contact-card {
+    display: grid;
+    grid-template-columns: minmax(240px, 0.82fr) minmax(0, 1.18fr);
+    gap: 32px;
+    width: min(90%, 1000px);
+    height: min(56vh, 480px);
+    min-height: 360px;
+    padding: 34px;
+    overflow: hidden;
+    border-color: rgba(191, 163, 122, 0.32);
+    box-shadow: 0 18px 48px rgba(90, 75, 92, 0.1);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 8px 4px;
+}
+
+.contact-eyebrow {
+    margin-bottom: 4px;
+    color: #a58e61;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.contact-title {
+    margin-bottom: 8px;
+    color: #48533c;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+.contact-intro {
+    margin-bottom: 24px;
+    color: #8b7c7e;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+}
+
+.contact-icon {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border-radius: 50%;
+    background: #f3efe5;
+    color: #8b7953;
+    font-size: 20px;
+}
+
+.contact-item h3 {
+    margin-bottom: 2px;
+    color: #8b7953;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.contact-item p,
+.contact-item a {
+    color: #5a4b5c;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: #a58e61;
+}
+
+.contact-directions {
+    margin-top: 2px;
+    padding: 9px 16px;
+    border: 1px solid rgba(165, 142, 97, 0.45);
+    border-radius: 24px;
+    color: #6e684f;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-directions:hover {
+    background: #48533c;
+    color: #ffffff;
+}
+
+.contact-map {
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #f3efe5;
+    box-shadow: 0 8px 24px rgba(90, 75, 92, 0.12);
+}
+
+.contact-map .map-box {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+
+    /* 隱藏大選單核取方塊本體 */
+    .menu-switcher {
+        display: none;
+    }
+
+    /* ==========================================
+       1. 導覽列大外框與 Logo
+       ========================================== */
+    .navbar.navbar {
+        height: 160px;
+        align-items: center;
+        padding: 20px 30px 15px;
+        position: relative;
+    }
+
+    .navbar .nav-logo {
+        align-self: flex-start;
+        transform: translateX(20px);
+        font-size: clamp(16px, 5vw, 20px);
+        letter-spacing: 1px;
+    }
+
+    .navbar .nav-logo>div {
+        justify-content: flex-start;
+    }
+
+    .navbar .nav-logo p {
+        width: max-content;
+        max-width: calc(100vw - 60px);
+        font-size: 10px;
+    }
+
+    /* ==========================================
+       2. 漢堡選單按鈕 (label 標籤)
+       ========================================== */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 26px;
+        height: 18px;
+        position: absolute;
+        right: 25px;
+        bottom: 25px;
+        cursor: pointer;
+        z-index: 1020;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #5a4b5c;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* ==========================================
+       3. 核心：全螢幕覆蓋層選單
+       ========================================== */
+    .navbar .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        align-self: auto;
+        gap: 15px;
+        padding: 40px;
+        border: none;
+        border-radius: 0;
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 1005;
+        overflow-y: auto;
+    }
+
+    /* 當漢堡按鈕(label)被點擊時使選單淡入 */
+    .menu-switcher:checked~.nav-links {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* 覆蓋層內部的菜單大項目尺寸調整 */
+    .navbar .nav-item {
+        font-size: 18px;
+        padding: 6px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .nav-item:hover {
+        transform: none;
+    }
+
+    /* ==========================================
+       4. 手機版子選單 (修改：為窗簾式動畫做基礎設定)
+       ========================================== */
+    .navbar .nav-dropdown {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 調整主項目的 label，讓它有箭頭轉動動畫效果的基準 */
+    .navbar .nav-dropdown .dropdown-toggle {
+        display: inline-block;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    /* 窗簾動畫核心：利用 max-height 做拉伸，不能使用 display: none */
+    .nav-dropdown .dropdown-menu {
+        position: static;
+        transform: none;
+        display: block;
+        /* 必須維持 block 才能跑 transition 高度動畫 */
+        width: 85%;
+        min-width: 0;
+        margin: 0 auto;
+        /* 預設沒收合時外邊距歸零 */
+        box-shadow: none;
+        background-color: #f7f5f0;
+        border-radius: 10px;
+        padding: 0;
+        /* 預設內邊距歸零 */
+
+        /* 窗簾收起設定 */
+        max-height: 0;
+        /* 預設高度為 0 */
+        overflow: hidden;
+        /* 超出高度的部分隱藏 */
+        opacity: 0;
+        transition: max-height 0.4s ease-in-out, opacity 0.3s ease, margin 0.3s ease;
+        /* 絲滑窗簾特效 */
+    }
+
+    .dropdown-menu a {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    /* 🔥【純 CSS 窗簾拉開核心】當對應的子選單核取方塊被勾選時，拉開窗簾 */
+    .submenu-switcher:checked~.dropdown-menu {
+        max-height: 450px;
+        /* 給予足夠容納 9 個課程的最大高度 */
+        opacity: 1;
+        margin: 8px auto 4px;
+        /* 展開時自然推開與大項目的上下間距 */
+        padding: 6px 0;
+        /* 展開後補回內邊距 */
+    }
+
+    /* ==========================================
+       5. 漢堡選單變為「X」與「▾ 箭頭旋轉」動態效果
+       ========================================== */
+    .menu-switcher:checked~.menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-switcher:checked~.menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-switcher:checked~.menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -7px);
+    }
+
+    /* ==========================================
+       6. 網頁其餘卡片內容排版優化（精準修正大空白）
+       ========================================== */
+    /* 核心修正：利用雙類別（.home-page .page-section）提高權重，強制把電腦版 240px 的巨大推力壓縮成 20px */
+    .home-page .page-section {
+        padding-top: 20px;
+        height: calc(100vh - 160px);
+        /* 讓卡片區域填滿扣除 160px 導覽列後的其餘手機螢幕 */
+    }
+
+    /* 調整首頁卡片在手機螢幕上的比例，避免拉得過長 */
+    .home-page .content-card {
+        width: 92%;
+        height: 52vh;
+        border-radius: 16px;
+    }
+
+    .home-page #photoPage .content-card {
+        width: fit-content;
+        max-width: 92vw;
+        height: fit-content;
+    }
+
+    .home-page #mapPage .contact-card {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        width: 92%;
+        height: auto;
+        min-height: 0;
+        max-height: calc(100% - 12px);
+        padding: 20px;
+        overflow-y: auto;
+        border-radius: 16px;
+    }
+
+    .contact-details {
+        padding: 0;
+    }
+
+    .contact-intro {
+        margin-bottom: 14px;
+    }
+
+    .contact-item {
+        margin-bottom: 12px;
+    }
+
+    .contact-map {
+        height: clamp(150px, 24vh, 220px);
+        flex: 0 0 auto;
+    }
+
+    .photo-feature-image {
+        max-width: calc(92vw - 2px);
+        max-height: 52vh;
+    }
+
+    .carousel-container .media-placeholder {
+        padding: 0;
+    }
+    .home-page .card-label,
+    .login-page .card-label {
+        top: 15px;
+        left: 15px;
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+
+    .media-placeholder,
+    .video-box {
+        padding: 0 20px;
+        font-size: 18px;
+    }
+
+    .arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .site-page .content-card {
+        width: 92%;
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+
+    .site-page-main {
+        margin-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .site-page .content-card.not-found-card {
+        padding: 38px 22px;
+    }
+
+    .site-page .not-found-copy {
+        font-size: 14px;
+    }
+
+    .login-page .content-card {
+        width: 88%;
+        padding: 50px 25px 35px;
+    }
+
+    .floating-panel {
+        position: fixed;
+        right: auto;
+        left: 20px;
+        bottom: 20px;
+        width: 90px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 8px;
+        border-radius: 18px;
+    }
+
+    .social-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .social-btn::before {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .pay-btn {
+        border-radius: 10px;
+        font-size: 11px;
+    }
+
+    .site-page .floating-panel {
+        margin: 0;
+        padding: 10px 12px;
+        border-radius: 18px;
+        animation: none;
+    }
+
+    .site-page .pay-btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 0;
+        aspect-ratio: 1 / 1;
+        padding: 0;
+    }
+}

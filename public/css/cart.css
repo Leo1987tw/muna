@@ -1,0 +1,298 @@
+/* ==========================================================================
+   娜娜問路居 - 購物車一頁式結帳專用 CSS (cart.css)
+   精準修正：大卡片完美靠齊首頁固定導覽列下方
+   ========================================================================== */
+
+/* 1. 頁面基礎佈局定位與修正 */
+body.site-page {
+    background-color: #f7f5f0 !important;
+    /* 確保全站統一的大地暖米色背景 */
+    padding-top: 0 !important;
+    /* 拔除原本內嵌多餘的 padding 避免干涉 */
+}
+
+/* 強制讓 site-page 狀態下的 main 區塊擁有精準的向下安全推距 */
+.site-page .site-page-main {
+    margin-top: 260px !important;
+    /* 電腦版大橫幅高度 240px + 20px 舒適呼吸留白 */
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.cart-layout-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* 2. 唯讀商品清單列表排版 */
+.cart-item-list {
+    width: 100%;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0e6e2;
+}
+
+.cart-item-row:last-child {
+    border-bottom: none;
+    padding-bottom: 10px;
+}
+
+.item-main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.item-title-text {
+    font-size: 19px;
+    font-weight: 500;
+    color: #a05e5e;
+    /* 品牌典雅紅褐色 */
+    letter-spacing: 0.05em;
+}
+
+.item-spec-text {
+    font-size: 14px;
+    color: #9e847a;
+    /* 大地溫和色 */
+    line-height: 1.5;
+}
+
+.item-price-amount {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a4b5c;
+    /* 全站主要深紫文字 */
+    white-space: nowrap;
+    padding-left: 20px;
+}
+
+/* 3. 表單收件資訊雙欄佈局 (RWD 格線) */
+.form-grid-two-col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+    width: 100%;
+}
+
+.form-group-full {
+    grid-column: span 2;
+}
+
+/* 客製化高級單選卡片 (配送與付款選項) */
+.checkout-options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+.custom-option-card {
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    background-color: #faf9f6;
+    border: 1px solid rgba(191, 163, 122, 0.25);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.custom-option-card:hover {
+    background-color: #faf7f5;
+    border-color: #9e847a;
+}
+
+/* 當單選卡片被選中時的高亮激活狀態 */
+.custom-option-card.active-selected {
+    border-color: #48533C;
+    /* 植物深綠 */
+    background-color: #fdfdfb;
+    box-shadow: 0 4px 15px rgba(72, 83, 60, 0.05);
+}
+
+.custom-option-card input[type="radio"] {
+    display: none;
+    /* 完美隱藏原生 Radio */
+}
+
+/* 繪製美化圓圈選鈕 */
+.custom-radio-circle {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #b5b5b5;
+    border-radius: 50%;
+    margin-right: 16px;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.custom-option-card.active-selected .custom-radio-circle {
+    border-color: #48533C;
+}
+
+.custom-option-card.active-selected .custom-radio-circle::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #48533C;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.option-card-text {
+    font-size: 15px;
+    color: #5a4b5c;
+    font-weight: 500;
+}
+
+/* 4. 金額拆計與總計區塊 */
+.cart-summary-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px dashed #eae1df;
+}
+
+.summary-fee-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #9e847a;
+}
+
+.summary-total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 8px;
+    color: #5a4b5c;
+}
+
+.cart-final-price {
+    font-size: 28px;
+    color: #48533C;
+    /* 總金額植物綠色視覺強調 */
+    font-weight: bold;
+}
+
+/* 5. 終極結帳寬按鈕：完美延續高級感黑色反饋 */
+.cart-action-button {
+    width: 100%;
+    max-width: 440px;
+    /* 大螢幕下鎖定精緻黃金比例 */
+    margin: 35px auto 10px auto;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 26px;
+    /* 優雅圓潤大圓角 */
+    background-color: #111111;
+    /* 高級黑色基礎 */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 2px;
+}
+
+.cart-action-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    background-color: #48533C;
+    /* 移上去轉為植物深綠 */
+    box-shadow: 0 8px 24px rgba(72, 83, 60, 0.3);
+}
+
+.cart-action-button:active:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(72, 83, 60, 0.2);
+}
+
+.cart-action-button:disabled {
+    background-color: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.empty-cart-message {
+    text-align: center;
+    padding: 60px 0;
+    color: #9e847a;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   6. 📱 手機端 RWD 響應式佈局微調 (精準契合您的 768px 標準)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    .site-page .site-page-main {
+        margin-top: 180px !important;
+        /* 手機版橫幅縮小至 160px + 20px 舒適留白 */
+        padding-bottom: 40px;
+    }
+
+    .item-title-text {
+        font-size: 17px;
+    }
+
+    .item-price-amount {
+        font-size: 18px;
+        padding-left: 10px;
+    }
+
+    /* 手機版格線強制切換為單欄垂直排列 */
+    .form-grid-two-col {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .form-group-full {
+        grid-column: span 1;
+    }
+
+    .custom-option-card {
+        padding: 15px 18px;
+    }
+
+    .cart-final-price {
+        font-size: 24px;
+    }
+
+    .cart-action-button {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px;
+        font-size: 15px;
+    }
+}

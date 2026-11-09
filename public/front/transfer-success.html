@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂單已成立 - 娜娜問路居</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/transfer-success.css">
+    <script type="module" src="../js/transfer-success.js"></script>
+
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列（與您首頁 100% 一致，確保 RWD 磨砂玻璃大選單與純 CSS 窗簾動畫完美運作） -->
+
+    <!-- 2. 主內容置中容器 -->
+    <main class="site-page-main">
+        <!-- 套用首頁精緻白底大容器 .content-card 搭配自訂成功外框 -->
+        <article class="content-card success-card">
+            
+            <div class="card-label">訂單建立成功</div>
+
+            <h2 class="success-title">✨ 感謝您的訂購洽詢 ✨</h2>
+            
+            <p class="success-notice">
+                您的訂單已安全記錄至雲端資料庫。<br>
+                請於 <strong style="color:#b85c4c;">3 日內</strong> 完成款項匯入，我們將在核對後第一時間為您安排出貨。
+            </p>
+
+            <!-- A. 動態訂單明細（由獨立的 transfer-success.js 自動渲染填入） -->
+            <div class="order-meta-box">
+                <div class="order-meta-line">
+                    <span>訂單編號：</span>
+                    <span id="display-order-id" style="font-weight: bold;">MUNA--</span>
+                </div>
+                <div class="order-meta-line">
+                    <span>購買人姓名：</span>
+                    <span id="display-customer-name">--</span>
+                </div>
+                <div class="order-meta-line">
+                    <span>應付結帳總額：</span>
+                    <span id="display-total-amount" style="color: #b85c4c; font-weight: bold;">NT$ 0</span>
+                </div>
+            </div>
+
+            <!-- B. 高質感匯款銀行帳戶資訊（完美整合全站植物綠配色） -->
+            <div class="bank-info-box">
+                <h4 class="bank-title">🏦 轉帳匯款帳戶資訊</h4>
+                <div class="bank-detail-line"><strong>匯款銀行：</strong> 第一銀行 (代碼 007)</div>
+                <div class="bank-detail-line"><strong>分行名稱：</strong> 板橋分行</div>
+                <div class="bank-detail-line"><strong>戶名名稱：</strong> 游禮文</div>
+                <div class="bank-detail-line" style="margin-top: 12px;">
+                    <strong>轉帳帳號：</strong> 
+                    <span class="bank-highlight">201-570-1052-9</span>
+                </div>
+                <p style="margin: 15px 0 0 0; color: #9e847a; font-size: 13px; line-height: 1.6;">
+                    ⚠️ 溫馨提醒：匯款完成後，請至導覽列「聯絡我們」或私訊告知您的【訂單編號】與您的【帳號後五碼】，我們將立刻為您核對銷帳。
+                </p>
+            </div>
+
+            <!-- C. 返回按鈕 -->
+            <button class="cart-action-button" onclick="location.href='../index.html'">
+                返回網頁首頁
+            </button>
+
+            <!-- 返回首頁 -->
+            <div class="page-footer">
+                <a class="back-home-link" href="../index.html">← 返回首頁</a>
+            </div>
+
+        </article>
+    </main>
+</body>
+
+</html>

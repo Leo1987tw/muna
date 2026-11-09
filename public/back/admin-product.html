@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 商品管理後台</title>
+    <<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-product.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-product.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列 (與 admin.html 同款外殼) -->
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <!-- 🔥 隱藏入口優化：點擊此處 Logo 文字將會觸發管理者帳密驗證，不需手打網址 -->
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <!-- 2. 獨立內容展示區 -->
+    <main class="site-page-main">
+        <div class="content-card">
+
+            <div class="product-admin-header">
+                <div class="card-label">商品管理後台</div>
+                <button type="button" id="btnNewProduct" class="btn-new-product">＋ 新增商品</button>
+            </div>
+
+            <!-- 📦 區塊一：商品上架/編輯表單 -->
+            <section class="product-form-section">
+                <h3 class="section-title" id="productFormTitle">✨ 新增商品課程</h3>
+
+                <div class="admin-input-group">
+                    <label for="productNameInput">商品/課程名稱</label>
+                    <input type="text" id="productNameInput" class="admin-form-input"
+                        placeholder="請輸入商品或課程標題（例如：黃金世紀療癒法）">
+                </div>
+
+                <!-- 完美升級為檔案選取元件，並限制只能點選圖片格式 -->
+                <div class="admin-input-group">
+                    <label for="productImageInput">選擇商品照片檔案 (系統會自動轉為 Base64)</label>
+                    <input type="file" id="productImageInput" class="admin-form-input" accept="image/*"
+                        style="padding: 8px;">
+                </div>
+
+                <div class="admin-input-group">
+                    <label for="productImageInput2">選擇第二張商品照片檔案 (選填)</label>
+                    <input type="file" id="productImageInput2" class="admin-form-input" accept="image/*"
+                        style="padding: 8px;">
+                </div>
+
+                <!-- 🔥 新增欄位一：商品分類（對應 Firebase 的 category 字串型態） -->
+                <div class="admin-input-group">
+                    <label for="productCategoryInput">商品分類</label>
+                    <input type="text" id="productCategoryInput" class="admin-form-input"
+                        placeholder="請輸入商品分類（例如：療癒課程、能量水晶、魔法精油）">
+                </div>
+
+                <!-- 🔥 複製這段，貼在商品分類輸入框的下方 -->
+                <div class="admin-input-group">
+                    <label for="productTagsInput">商品標籤（多個標籤請用中文或英文逗號隔開）</label>
+                    <input type="text" id="productTagsInput" class="admin-form-input"
+                        placeholder="例如：新品,熱銷,免運（若無標籤請留白）">
+                </div>
+
+                <div class="admin-input-group">
+                    <label for="productPriceInput">商品價格 (台幣 NTD)</label>
+                    <input type="number" id="productPriceInput" class="admin-form-input" placeholder="請輸入商品定價（例如：1200）"
+                        min="0">
+                </div>
+
+                <!-- 🔥 複製這段，貼在商品價格下方 -->
+                <div class="admin-input-group">
+                    <label for="productSalePriceInput">商品特價 (台幣 NTD，若無特價請填 0)</label>
+                    <input type="number" id="productSalePriceInput" class="admin-form-input"
+                        placeholder="請輸入商品特價（例如：990，沒有特價請填 0）" min="0" value="0">
+                </div>
+
+                <div class="admin-input-group">
+                    <label for="productDescriptionInput">商品詳細介紹文案</label>
+                    <textarea id="productDescriptionInput" class="admin-form-input" rows="4"
+                        placeholder="請輸入詳細的商品核心介紹、清理內容或適合對象..."></textarea>
+                </div>
+
+                <section class="product-intents-editor" aria-labelledby="intentsEditorTitle">
+                    <div class="product-intents-heading">
+                        <div>
+                            <h4 id="intentsEditorTitle">前端選子項目選項</h4>
+                            <p>新增前端意向卡片的標題、簡述與點擊後顯示的詳細內容。</p>
+                        </div>
+                        <button type="button" id="btnAddIntent" class="btn-add-intent">＋ 新增選項</button>
+                    </div>
+                    <div id="productIntentsContainer"></div>
+                </section>
+
+                <button id="btnUploadProduct" class="admin-action-btn">發佈商品至前台</button>
+                <button type="button" id="btnCancelProductEdit" class="admin-cancel-edit-btn" hidden>取消編輯</button>
+            </section>
+
+            <!-- 📋 區塊二：商品即時渲染列表 -->
+            <section class="product-list-section">
+                <h3 class="section-title">📂 目前已上架商品列表</h3>
+
+                <!-- Firebase 監聽動態渲染的總容器 -->
+                <div id="productContainer">
+                    <div style="text-align:center; color:#9e847a; padding:20px;">
+                        ⏳ 正在連線 Firebase 雲端資料庫...
+                    </div>
+                </div>
+            </section>
+
+            <!-- 頁尾返回連結 -->
+            <div class="page-footer">
+                <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. 右下角懸浮面板 -->
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+
+</body>
+
+</html>

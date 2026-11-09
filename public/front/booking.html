@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程報名與意願登記 - 娜娜問路居</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/booking.css">
+    <script type="module" src="../js/booking.js"></script>
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body class="site-page booking-page">
+
+    <!-- 1. 頂部固定導覽列（大橫幅風格） -->
+
+    <!-- 2. 獨立諮詢表單展示區 -->
+    <main class="site-page-main booking-page-main">
+        <div class="content-card">
+
+            <!-- 小標籤標題 -->
+            <div class="card-label">免費諮詢申請表</div>
+
+            <div class="booking-content-layout">
+                <div class="booking-welcome-text">
+                    <p>歡迎來到娜娜問路居。不論你正面臨人生的十字路口，或是想給疲憊的自己一段靜心的時光，都歡迎填寫下方表單。</p>
+                    <p>提交申請後，Muna 將會親自透過電子郵件與您聯繫，為您安排專屬的心靈陪伴時段。✨</p>
+                </div>
+
+                <!-- 免登入訪客提示訊息區塊 -->
+                <div id="auth-status"></div>
+
+                <!-- 🌟 資料填寫表單核心 -->
+                <form class="booking-form">
+
+                    <!-- 📅 時段選取區塊（由 booking.js 自動動態生成按鈕） -->
+                    <div class="form-group time-slots-section">
+                        <label class="form-label slots-title">請選擇預約時段</label>
+                        <div id="slots-container">
+                            <p class="slots-loading-text">正在加載可預約時段...</p>
+                        </div>
+                        <!-- 隱藏欄位：記錄被選中的時段 ID -->
+                        <input type="hidden" id="selected-slot-id" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">您的姓名</label>
+                        <input type="text" id="booking-name" class="form-input" placeholder="請輸入您的真實姓名或稱呼" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">電子郵件信箱</label>
+                        <input type="email" id="booking-email" class="form-input" placeholder="example@email.com"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">聯絡電話</label>
+                        <input type="tel" id="booking-tel" class="form-input" placeholder="0912345678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">想諮詢或療癒的狀態</label>
+                        <textarea id="booking-message" class="form-input" rows="5"
+                            placeholder="請簡述您目前遇到的困擾、或特別想透過這段諮詢獲得什麼樣的協助與引導（這能讓 Muna 更全面地準備您的諮詢內容）" required></textarea>
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="primary-button submit-booking-btn">請先選擇上方時段</button>
+                </form>
+            </div>
+
+            <!-- 頁尾返回連結 -->
+            <div class="page-footer">
+                <a href="../index.html" class="back-home-link">← 返回網頁首頁</a>
+            </div>
+
+        </div>
+    </main>
+</body>
+
+</html>

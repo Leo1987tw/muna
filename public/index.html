@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./js/script.js"></script>
+    <script type="module" src="./js/script.js"></script>
+</head>
+
+<body class="home-page">
+
+    <!-- 1. 頂部固定導覽列（大橫幅風格） -->
+
+    <!-- 全螢幕滾動大容器 -->
+    <div class="page-scroll-container">
+
+        <!-- 2. 第一頁：照片精選卡片 -->
+        <section class="page-section" id="photoPage">
+            <div class="content-card">
+                <div class="card-label">照片精選</div>
+                <div class="carousel-container">
+                    <button class="arrow arrow-left" onclick="moveSlide(-1)">❮</button>
+                    <button class="arrow arrow-right" onclick="moveSlide(1)">❯</button>
+
+                    <div id="photoCarouselSlides">
+                        <div class="carousel-slide active">
+                            <div class="media-placeholder">正在載入精選照片...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 第二頁：最新影片卡片 -->
+        <section class="page-section" id="videoPage">
+            <div class="content-card">
+                <div class="card-label">每月易經指引</div>
+                <div class="video-box">
+                    <iframe height="100%" src="https://www.youtube.com/embed/0kooexJcRgk" title="2026年10月10日"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 第三頁：服務地點卡片 -->
+        <section class="page-section" id="mapPage">
+            <div class="content-card contact-card">
+                <div class="contact-details">
+                    <p class="contact-eyebrow">CONTACT</p>
+                    <h2 class="contact-title">聯絡我們</h2>
+                    <p class="contact-intro">期待與您相遇，歡迎預約或來電詢問。</p>
+
+                    <div class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">⌖</span>
+                        <div>
+                            <h3>服務地點</h3>
+                            <p>高雄市新興區自立一路66號</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <span class="contact-icon" aria-hidden="true">☎</span>
+                        <div>
+                            <h3>聯絡電話</h3>
+                            <a href="tel:0917576112">0917-576-112</a>
+                        </div>
+                    </div>
+
+                    <a class="contact-directions"
+                        href="https://www.google.com/maps/search/?api=1&amp;query=%E9%AB%98%E9%9B%84%E5%B8%82%E6%96%B0%E8%88%88%E5%8D%80%E8%87%AA%E7%AB%8B%E4%B8%80%E8%B7%AF66%E8%99%9F"
+                        target="_blank" rel="noopener noreferrer">
+                        在 Google 地圖中查看 <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+                <div class="contact-map">
+                    <iframe class="map-box"
+                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3682.479181520149!2d120.29479937589639!3d22.6359159806456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1z6auY6ZuE5biC5paw6IiI5Y2A6Ieq56uL5LiA6LevNjbomZ8!5e0!3m2!1szh-TW!2stw!4v1791248500126!5m2!1szh-TW!2stw"
+                        title="娜娜問路居服務地點地圖" width="100%" height="100%" allowfullscreen loading="lazy"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 5. 靈性療癒系右下角懸浮面板（由上到下：IG、FB、免費諮詢） -->
+</body>
+
+</html>

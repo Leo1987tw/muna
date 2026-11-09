@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 安全登出中</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/logout.css">
+    <script type="module" src="../js/logout.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列 -->
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <!-- 🔥 隱藏入口優化：點擊此處 Logo 文字將會觸發管理者帳密驗證，不需手打網址 -->
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <!-- 2. 獨立內容展示區（完美承襲大留白與圓角卡片架構） -->
+    <main class="site-page-main logout-page-main">
+        <div class="content-card" style="max-width: 550px; text-align: center; padding: 60px 45px;">
+
+            <!-- 🌟 初始狀態：左右按鈕確認區塊 -->
+            <div id="confirmState">
+                <h3 style="font-weight: 300; margin-bottom: 12px; color: #a05e5e; font-size: 22px;">管理員登出確認</h3>
+                <p style="font-size: 15px; color: #5a4b5c; margin: 0;">您確定要登出「娜娜問路居」控制後台嗎？</p>
+                
+                <!-- 🔥 左右並排按鈕組 -->
+                <div class="logout-btn-group">
+                    <button type="button" id="executeLogoutBtn" class="logout-btn btn-logout-confirm">確定登出</button>
+                    <a href="./admin.html" class="logout-btn btn-logout-cancel">返回管理</a>
+                </div>
+            </div>
+
+            <!-- 🌟 點擊後切換狀態：載入自訂的微光旋轉動畫（預設隱藏） -->
+            <div id="loadingState" style="display: none;">
+                <div class="logout-spinner"></div>
+                <h3 style="font-weight: 300; margin-bottom: 12px; color: #a05e5e;">安全登出中</h3>
+                <p style="font-size: 15px; color: #5a4b5c; margin: 0;">正在清除您的管理員身分憑證，請稍候...</p>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 進階主控制台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script type="module" src="../js/admin.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列（🌟 外殼與前端完全同款，功能鍵精確置換為您的五大模組） -->
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <!-- 🔥 隱藏入口優化：點擊此處 Logo 文字將會觸發管理者帳密驗證，不需手打網址 -->
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <!-- 2. 獨立內容展示區（🌟 100% 仿照 about.html 容器架構） -->
+    <main class="site-page-main">
+        <div class="content-card">
+
+            <!-- 小標籤標題 -->
+            <div class="card-label">後台主控台</div>
+
+            <!-- 🌟 仿 about-muna-layout：承襲完全相同的垂直架構與大留白 -->
+            <div class="admin-muna-layout">
+
+                <!-- 區塊一（仿 about-row）：核心系統狀態與動態 -->
+                <div class="dashboard-row">
+                    <!-- 左側（仿 about-media-box） -->
+                    <div class="dashboard-media-box">
+                        <div class="dashboard-status-box">
+                            <div class="dashboard-status-title">今日預約動態</div>
+                            <div class="dashboard-status-number" id="todayBookingCount" aria-live="polite">--</div>
+                            <p>筆待處理諮詢</p>
+                        </div>
+                    </div>
+                    <!-- 右側（仿 about-text-box） -->
+                    <div class="dashboard-text-box">
+                        <h3 style="margin-bottom: 12px; color: #a05e5e; font-weight: 500;">歡迎回來，管理員 Muna</h3>
+                        <p>這是「娜娜問路居」的專屬後台主控面板。您可以透過上方的功能選單，即時維護客人的預約紀錄、控制空閒日曆的關閉與開放、更新商品課程文案，或上傳最新侧拍影片。</p>
+                        <p>本系統已為您預留與雲端資料庫（非 PHP 架構）的安全對接通道，所有維護操作都將即時同步至前端網頁。</p>
+                    </div>
+                </div>
+
+                <!-- 區塊二（仿 about-row 帶有 style="flex-direction: row-reverse;" 交錯視覺） -->
+                <div class="dashboard-row" style="flex-direction: row-reverse;">
+                    <!-- 左側（仿 about-media-box） -->
+                    <div class="dashboard-media-box">
+                        <div class="dashboard-status-box" style="background-color: #f0edf5; border-color: rgba(108, 92, 128, 0.15);">
+                            <div class="dashboard-status-title" style="color: #5a4b5c;">目前上架商品</div>
+                            <div class="dashboard-status-number" style="color: #5a4b5c;">1</div>
+                        </div>
+                        <div class="dashboard-status-box" style="background-color: #f0edf5; border-color: rgba(108, 92, 128, 0.15);">
+                            <div class="dashboard-status-number" style="color: #5a4b5c;">1</div>
+                            <p>門主要療癒課程</p>
+                        </div>
+                    </div>
+                    <!-- 右側（仿 about-text-box） -->
+                    <div class="dashboard-text-box">
+                        <h3 style="margin-bottom: 12px; color: #5a4b5c; font-weight: 500;">快捷管理指引說明</h3>
+                        <p>• <b>預約管理</b>：查看預約時段與聯絡資料，可切換「待處理／已確認」、刪除紀錄，或手動新增預約。</p>
+                        <p>• <b>空閒管理</b>：切換月份並選擇日期，可查看當日名額、新增開放時段或移除時段；前台會同步更新可預約狀態。</p>
+                        <p>• <b>商品管理</b>：新增或編輯商品／課程、圖片、分類、標籤、價格與介紹，也可調整前端選項及上下架狀態。</p>
+                        <p>• <b>圖片管理</b>：新增或編輯照片描述與顯示狀態；使用卡片上的上／下按鈕即時排序，首頁依序展示啟用照片。</p>
+                        <p>• <b>關於我管理</b>：編輯前台關於 Muna 的兩段介紹與對應照片。</p>
+                        <p>• <b>課程頁面管理</b>：選擇 course1～course9，編輯各課程的頁面文字與圖片；course2～course9 另可設定 YouTube 影片與學員回饋。</p>
+                        <p>• <b>活動影片管理</b>：貼上 YouTube 一般影片或 Shorts 網址，預覽確認後儲存，首頁影片會同步更新。</p>
+                        <p>• <b>訂單管理</b>：查看訂單與付款資料，可更新處理、出貨、完成或取消狀態，並刪除不需要的紀錄。</p>
+                        <p>完成修改後請確認頁面顯示儲存成功；離開後台請使用「登出」。</p>
+                    </div>
+                </div>
+
+                <!-- 頁尾返回連結 -->
+                <div class="page-footer">
+                    <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 🌟 3. 右下角懸浮面板（與 about.html 完全同款外殼，改為一鍵回到最頂端或快捷支援） -->
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+
+</html>

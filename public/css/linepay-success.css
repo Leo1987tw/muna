@@ -1,0 +1,121 @@
+/* ==========================================================================
+   娜娜問路居 - LINE Pay 人工收付款引導感謝頁專用 CSS (linepay-success.css)
+   精準修正：大卡片完美靠齊固定導覽列下方，手機與電腦版不重疊衝突
+   ========================================================================== */
+
+/* 1. 頁面基礎佈局定位與暖米色底色鎖定 */
+body.site-page {
+    background-color: #f7f5f0 !important; /* 全站大氣統一暖米色 */
+    padding-top: 0 !important;            /* 阻斷多餘內邊距 */
+}
+
+/* 強制讓 site-page 狀態下的 main 區塊擁有固定舒適的向下安全推距 */
+.site-page .site-page-main {
+    margin-top: 260px !important;  /* 電腦版大橫幅高度 240px + 20px 舒適呼吸留白 */
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 2. LINE Pay 感謝卡片本體排版優化 */
+.success-card {
+    text-align: center;
+    max-width: 580px; /* 限縮大螢幕寬度，維持黃金微透卡片精緻比例 */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.success-title {
+    color: #a05e5e; /* 娜娜問路居品牌經典紅褐色 */
+    font-size: 26px;
+    font-weight: 500;
+    margin: 25px 0 15px;
+    letter-spacing: 2px;
+}
+
+.success-notice {
+    color: #5a4b5c; /* 主站主要深紫文字 */
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    letter-spacing: 0.05em;
+}
+
+/* 3. 動態諮詢明細小看板區塊 */
+.order-meta-box {
+    background-color: #faf9f6;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 12px;
+    padding: 18px 24px;
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 15px;
+    color: #5a4b5c;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.order-meta-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+/* 4. 終極導流：高質感 LINE 綠色寬按鈕 (整合立體上浮特效) */
+.linepay-action-button {
+    width: 100%;
+    max-width: 440px;
+    margin: 15px auto 20px auto;
+    padding: 16px 30px;
+    border: none;
+    border-radius: 26px; /* 與高級感按鈕完全對齊之圓潤大圓角 */
+    background-color: #06C755; /* LINE 官方認證綠色品牌色 */
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(6, 199, 85, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 1px;
+}
+
+.linepay-action-button:hover {
+    transform: translateY(-3px); /* 觸碰時優雅立體上浮 */
+    background-color: #05b34c; /* 綠色層次稍微加深引導點擊 */
+    box-shadow: 0 8px 24px rgba(6, 199, 85, 0.4);
+}
+
+.linepay-action-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(6, 199, 85, 0.2);
+}
+
+/* 5. 📱 手機端 RWD 響應式佈局微調 (768px 精確斷點) */
+@media screen and (max-width: 768px) {
+    .site-page .site-page-main {
+        margin-top: 180px !important; /* 貼齊手機版縮小後的導覽列高度與舒適外邊距 */
+        padding-bottom: 40px;
+    }
+
+    .success-title { font-size: 21px; }
+    .success-notice { font-size: 14px; }
+    
+    .order-meta-box {
+        padding: 14px 18px;
+        font-size: 14px;
+    }
+
+    .linepay-action-button {
+        padding: 14px;
+        font-size: 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+}

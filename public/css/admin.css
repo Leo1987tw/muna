@@ -1,0 +1,74 @@
+.admin-muna-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.dashboard-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.dashboard-media-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.dashboard-status-box {
+    margin: 40px;
+    width: 100%;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(191, 163, 122, 0.2);
+    border-radius: 16px;
+    background-color: #faf9f6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    color: #5a4b5c;
+}
+
+.dashboard-status-title {
+    margin-bottom: 10px;
+    color: #a05e5e;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.dashboard-status-number {
+    margin-bottom: 10px;
+    font-family: "PingFang TC", sans-serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.dashboard-text-box {
+    flex: 1.3;
+    color: #5a4b5c;
+    font-size: 16px;
+}
+
+.dashboard-text-box p {
+    margin-bottom: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-row {
+        flex-direction: column !important;
+        gap: 25px;
+    }
+
+    .dashboard-text-box {
+        text-align: justify;
+    }
+
+    .dashboard-status-box {
+        height: 200px;
+    }
+}

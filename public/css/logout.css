@@ -1,0 +1,117 @@
+/* ==========================================================
+   🌟 獨立登出頁面 (logout.html) 專屬左右按鈕確認與療癒轉場樣式
+   ========================================================== */
+
+/* 1. 登出頁卡片垂直居中外容器 */
+.logout-page-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 65vh; /* 扣除 240px 導覽列後，在各種大螢幕下均能完美居中 */
+}
+
+/* 2. 左右按鈕彈性容器 */
+.logout-btn-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* 確定登出與返回管理按鈕的間距 */
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto 10px;
+}
+
+/* 3. 按鈕基礎通用樣式 */
+.logout-btn {
+    flex: 1; /* 讓兩個按鈕等寬 */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+/* 4. 左按鈕：確定登出（溫柔的灰粉色系，代表退場） */
+.btn-logout-confirm {
+    background-color: #faf9f6;
+    color: #a05e5e;
+    border: 1px solid rgba(160, 94, 94, 0.3);
+}
+
+.btn-logout-confirm:hover {
+    transform: translateY(-2px);
+    background-color: #fceeed;
+    border-color: #a05e5e;
+    box-shadow: 0 4px 12px rgba(160, 94, 94, 0.1);
+}
+
+/* 5. 右按鈕：返回管理（完美沿用您的 pay-btn 粉紫/藍漸層，引導留下來） */
+.btn-logout-cancel {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(142, 197, 252, 0.45);
+}
+
+.btn-logout-cancel:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 197, 252, 0.6);
+}
+
+/* 按下時的按壓反饋 */
+.logout-btn:active {
+    transform: translateY(0);
+}
+
+/* 6. 點擊後的微光旋轉動畫圈 */
+.logout-spinner {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 25px;
+    border: 3px solid rgba(142, 197, 252, 0.2);
+    border-top: 3px solid #8ec5fc; 
+    border-radius: 50%;
+    animation: logout-spin-pulse 1s linear infinite;
+}
+
+/* 7. 絲滑微光旋轉與紫光暈呼吸特效 */
+@keyframes logout-spin-pulse {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 0 0 5px rgba(142, 197, 252, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(224, 195, 252, 0.4); 
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 0 0 5px rgba(142, 197, 252, 0.1);
+    }
+}
+
+/* ==========================================================
+   📱 手機版 RWD 響應式自動調整為「上下並排」
+   ========================================================== */
+@media screen and (max-width: 768px) {
+    .logout-page-main {
+        min-height: 55vh;
+    }
+    
+    .logout-btn-group {
+        flex-direction: column; /* 手機螢幕寬度不足時，自動變成上下堆疊排列，防止擠壓變形 */
+        gap: 12px;
+        max-width: 100%;
+    }
+
+    .logout-btn {
+        width: 100%; /* 手機上按鈕自動滿版 */
+        padding: 14px 20px;
+    }
+}

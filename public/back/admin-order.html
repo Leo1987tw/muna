@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂單管理 - 娜娜問路居後台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-order.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-order.js"></script>
+</head>
+
+<body class="site-page">
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <!-- 🔥 隱藏入口優化：點擊此處 Logo 文字將會觸發管理者帳密驗證，不需手打網址 -->
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <main class="site-page-main admin-order-main">
+        <section class="content-card admin-order-card" aria-labelledby="orders-title">
+            <div class="card-label">訂單管理</div>
+            <div class="admin-order-content">
+                <header class="orders-header">
+                    <div>
+                        <h1 id="orders-title">訂單列表</h1>
+                        <p>檢視並管理顧客訂單、付款與配送進度。</p>
+                    </div>
+                    <div class="orders-count" id="orders-count" aria-live="polite">載入中...</div>
+                </header>
+
+                <div class="orders-feedback" id="orders-feedback" role="status" aria-live="polite"></div>
+                <div class="orders-table-shell">
+                    <div class="orders-table-scroll">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">訂單編號</th>
+                                    <th scope="col">顧客姓名</th>
+                                    <th scope="col">聯絡電話</th>
+                                    <th scope="col">配送地址</th>
+                                    <th scope="col">配送方式</th>
+                                    <th scope="col">付款方式</th>
+                                    <th scope="col">訂單狀態</th>
+                                    <th scope="col">建立時間</th>
+                                    <th scope="col">操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-table-body">
+                                <tr>
+                                    <td class="orders-placeholder" colspan="9">正在載入訂單資料...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="orders-status-guide" aria-label="訂單狀態說明">
+                    <span class="order-status-badge status-pending">待處理</span>
+                    <span>尚待確認或收款</span>
+                    <span class="order-status-badge status-processing">處理中</span>
+                    <span>已確認或正在處理</span>
+                    <span class="order-status-badge status-completed">已完成</span>
+                    <span>訂單已結案</span>
+                </div>
+
+                <footer class="page-footer">
+                    <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+
+</html>

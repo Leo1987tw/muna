@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空閒日期設置 - 娜娜問路居後台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-calendar.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-calendar.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列（🌟 外殼與前端完全同款，功能鍵精確置換為您的五大模組） -->
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <!-- 🔥 隱藏入口優化：點擊此處 Logo 文字將會觸發管理者帳密驗證，不需手打網址 -->
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <!-- 2. 獨立內容展示區（100% 仿照 about.html 容器布局） -->
+    <main class="site-page-main">
+        <div class="content-card">
+
+            <!-- 小標籤標題（精確貼齊白色卡片左上角） -->
+            <div class="card-label">空閒日期設置</div>
+
+            <!-- 全域中軸置中佈局容器 -->
+            <div class="calendar-muna-layout">
+
+                <!-- 頂部操作說明提示列 -->
+                <div class="admin-notice-bar">
+                    💡 <b>操作說明</b>：點擊下方日曆的任意日期，下方將即時展開該日期的【Toast 可預約時間清單】與【新增時間表單】。
+                </div>
+
+                <!-- 月份切換控制器（全置中） -->
+                <div class="calendar-header-control">
+                    <button class="calendar-btn" id="prevMonthBtn">⟵ 上個月</button>
+                    <div id="calendarMonthTitle">2026 年 10 月</div>
+                    <button class="calendar-btn" id="nextMonthBtn">下個月 ⟶</button>
+                </div>
+                
+                <!-- 日曆數字網格外殼 -->
+                <div class="calendar-grid-wrapper">
+                    <!-- 🛠️ 終極修復：精確補上 id="calendarGrid"，讓 JS 能夠順利找到容器並注入日期數字 1~31 -->
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- 星期標籤 -->
+                        <div class="weekday-label">日</div>
+                        <div class="weekday-label">一</div>
+                        <div class="weekday-label">二</div>
+                        <div class="weekday-label">三</div>
+                        <div class="weekday-label">四</div>
+                        <div class="weekday-label">五</div>
+                        <div class="weekday-label">六</div>
+                        
+                        <!-- 日期數字格子將由 admin-calendar.js 自動動態注入於此 -->
+                    </div>
+                </div>
+
+                <!-- 核心：一開始完全隱藏（display: none）的當日時段維護 Toast 面板 -->
+                <div id="toastPanel" class="admin-toast-panel" style="display: none;">
+                    <div id="toastActiveContent">
+                        
+                        <!-- 視窗動態日期抬頭與關閉按鈕 -->
+                        <div class="toast-header-row">
+                            <h3 id="toastDateTitle" class="toast-date-header">2026-10-07</h3>
+                            <span id="closeToastBtn" class="toast-close-x">&times;</span>
+                        </div>
+                        
+                        <!-- 1. 當日現有時間時段列表 (Toast 清單區) -->
+                        <div class="toast-section-title">📋 當日已開放時間狀態：</div>
+                        <div id="toastSlotsList" class="toast-slots-scroll-box">
+                            <!-- 由 JS 動態注入該日期的時段項目 -->
+                        </div>
+                        
+                        <!-- 2. 當日增加時間輕表單 -->
+                        <div class="toast-form-divider">
+                            <div class="toast-section-title" style="color: #a05e5e;">➕ 增加此日期的新開放時間：</div>
+                            <form id="toastAddSlotForm" class="toast-add-form">
+                                <div class="toast-form-grid">
+                                    <div class="form-input-group">
+                                        <label>開始時間：</label>
+                                        <input type="text" id="toastNewTime" placeholder="例如 14:00" required>
+                                    </div>
+                                    <div class="form-input-group">
+                                        <label>最大容量：</label>
+                                        <input type="number" id="toastNewCapacity" value="2" min="1" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="toast-submit-btn">確認新增時間</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- 頁尾返回連結 -->
+                <div class="page-footer">
+                    <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. 右下角固定懸浮面板 -->
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+
+</html>

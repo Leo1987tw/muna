@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 照片管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-photo.css">
+    <script type="module" src="../js/admin.js"></script>
+    <script type="module" src="../js/admin-photo.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列 -->
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span><span></span><span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <!-- 2. 獨立內容展示區 -->
+    <main class="site-page-main">
+        <div class="content-card">
+
+            <div class="photo-admin-header">
+                <div class="card-label">圖片精選管理後台</div>
+                <button type="button" id="btnNewPhoto" class="btn-new-photo">＋ 新增照片</button>
+            </div>
+
+            <!-- 📸 區塊一：圖片上傳表單 -->
+            <section class="photo-form-section" hidden>
+                <h3 class="section-title" id="photoFormTitle">✨ 新增精彩照片</h3>
+
+                <div class="admin-input-group">
+                    <label for="photoFileInput" id="photoImageLabel">選擇照片檔案 (系統會自動轉為 Base64，限制 700KB 以下)</label>
+                    <input type="file" id="photoFileInput" class="admin-form-input" accept="image/*" style="padding: 8px;">
+                </div>
+
+                <div class="admin-input-group">
+                    <label for="photoAltInput">圖片替代文字 (Alt Text / 簡短描述)</label>
+                    <input type="text" id="photoAltInput" class="admin-form-input" placeholder="請輸入這張照片的描述（例如：療癒相簿一 - 傾聽內心的聲音）">
+                </div>
+
+                <div class="admin-input-group">
+                    <label for="photoStatusSelect">前台顯示</label>
+                    <select id="photoStatusSelect" class="admin-form-input">
+                        <option value="active">顯示</option>
+                        <option value="inactive">隱藏</option>
+                    </select>
+                </div>
+
+                <button id="btnUploadPhoto" class="admin-action-btn">上傳照片至精選相簿</button>
+                <button type="button" id="btnCancelPhotoEdit" class="admin-cancel-edit-btn" hidden>取消</button>
+            </section>
+
+            <!-- 📋 區塊二：照片實時渲染網格列表 -->
+            <section class="photo-list-section">
+                <h3 class="section-title">📂 目前已上架精選照片</h3>
+
+                <!-- 照片實時網格容器 -->
+                <div id="photoGridContainer">
+                    <div style="text-align:center; color:#9e847a; padding:20px;">
+                        ⏳ 正在連線 Firebase 雲端資料庫...
+                    </div>
+                </div>
+            </section>
+
+            <!-- 頁尾返回連結 -->
+            <div class="page-footer">
+                <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+            </div>
+
+        </div>
+    </main>
+
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+
+</body>
+</html>

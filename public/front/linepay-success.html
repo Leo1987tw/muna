@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂單已成立 - 娜娜問路居</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/linepay-success.css">
+    <script type="module" src="../js/linepay-success.js"></script>
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列（與您首頁 100% 一致，確保 RWD 漢堡選單與純 CSS 窗簾動畫完美運作） -->
+
+    <!-- 2. 主內容置中容器（已精準移除多餘重疊的 navbar 結構，防範排版錯位） -->
+    <main class="site-page-main">
+        <article class="content-card success-card">
+            
+            <div class="card-label" style="background-color: #06C755;">LINE Pay 諮詢成立</div>
+
+            <h2 class="success-title">✨ 訂單已安全提交 ✨</h2>
+            
+            <p class="success-notice">
+                您的訂購明細已安全記錄至雲端資料庫。<br>
+                由於本管道目前採用<strong style="color:#06C755;">「人工安全收款」</strong>機制，請點擊下方綠色按鈕私訊娜娜，<br>
+                系統已為您自動打包明細，小幫手將在第一時間發送專屬 LINE Pay 繳費連結給您！
+            </p>
+
+            <!-- A. 動態訂單明細（由獨立的 linepay-success.js 自動渲染填入） -->
+            <div class="order-meta-box">
+                <div class="order-meta-line">
+                    <span>諮詢單號：</span>
+                    <span id="display-order-id" style="font-weight: bold;">MUNA--</span>
+                </div>
+                <div class="order-meta-line">
+                    <span>購買人姓名：</span>
+                    <span id="display-customer-name">--</span>
+                </div>
+                <div class="order-meta-line">
+                    <span>應付結帳總額：</span>
+                    <span id="display-total-amount" style="color: #06C755; font-weight: bold;">NT$ 0</span>
+                </div>
+            </div>
+
+            <!-- B. 核心導流：高質感 LINE 綠色一頁式對接按鈕 -->
+            <button type="button" class="linepay-action-button" onclick="window.open('https://line.me', '_blank')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 4px;">
+                    <path d="M24 10.3c0-5.7-5.4-10.3-12-10.3S0 4.6 0 10.3c0 5.1 4.3 9.3 10.1 10.1.4.1.9.4.9.9v2.2c0 .5.5.8.9.5l3-2.1c4.9-1.2 9.1-5.1 9.1-11.6zm-15.3 3.6H7.1c-.4 0-.7-.3-.7-.7V8.5c0-.4.3-.7.7-.7s.7.3.7.7v4h.2c.4 0 .7.3.7.7s-.3.7-.7.7zm2.9-.7c0 .4-.3.7-.7.7s-.7-.3-.7-.7V8.5c0-.4.3-.7.7-.7s.7.3.7.7v4.7zm5.3 0c0 .4-.3.7-.7.7h-1.6l-.1-.1V8.5c0-.4.3-.7.7-.7s.7.3.7.7v3.3h.3c.4 0 .7.3.7.7zm3.1-4c0 .4-.3.7-.7.7h-1.2v1.1h1.2c.4 0 .7.3.7.7s-.3.7-.7.7h-1.2v1.2h1.2c.4 0 .7.3.7.7s-.3.7-.7.7h-1.9c-.4 0-.7-.3-.7-.7V8.5c0-.4.3-.7.7-.7h1.9c.4 0 .7.3.7.7z"/>
+                </svg>
+                一鍵私訊娜娜（自動帶入 LINE Pay 繳費）
+            </button>
+
+            <!-- 返回首頁 -->
+            <div class="page-footer">
+                <a class="back-home-link" href="../index.html">← 返回首頁</a>
+            </div>
+
+        </article>
+    </main>
+</body>
+
+</html>

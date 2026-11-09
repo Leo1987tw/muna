@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>娜娜問路居 - 活動影片管理</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin-video.css">
+    <script type="module" src="../js/admin-video.js"></script>
+</head>
+
+<body class="site-page">
+    <nav class="navbar admin-navbar">
+        <input type="checkbox" id="menu-switcher" class="menu-switcher">
+        <div class="nav-logo" onclick="location.href='./admin.html'" style="cursor: pointer;">
+            <div>
+                <img src="../images/logo.png" alt="娜娜問路居 Logo" class="logo-img">
+                娜娜問路居
+            </div>
+            <p>Nothing nothing</p>
+            <p>where do you come from</p>
+        </div>
+        <label class="menu-toggle" for="menu-switcher" aria-label="切換導覽選單">
+            <span></span><span></span><span></span>
+        </label>
+        <div class="nav-links">
+            <a class="nav-item" href="./admin-booking.html">預約管理</a>
+            <a class="nav-item" href="./admin-calendar.html">空閒管理</a>
+            <a class="nav-item" href="./admin-product.html">商品管理</a>
+            <a class="nav-item" href="./admin-photo.html">照片管理</a>
+            <a class="nav-item" href="./admin-about.html">關於我管理</a>
+            <a class="nav-item" href="./admin-course.html">課程頁面管理</a>
+            <a class="nav-item" href="./admin-video.html">活動影片管理</a>
+            <a class="nav-item" href="./admin-order.html">訂單管理</a>
+            <a class="nav-item" href="../index.html">返回前台</a>
+            <a class="nav-item" href="./logout.html">登出</a>
+        </div>
+    </nav>
+
+    <main class="site-page-main">
+        <div class="content-card video-admin-card">
+            <header class="video-admin-header">
+                <div class="card-label">活動影片管理</div>
+            </header>
+
+            <section class="video-form-section" aria-labelledby="videoFormTitle">
+                <h2 class="section-title" id="videoFormTitle">更新首頁影片</h2>
+                <div class="admin-input-group">
+                    <label for="videoUrlInput">YouTube 影片或 Shorts 網址</label>
+                    <input type="url" id="videoUrlInput" class="admin-form-input"
+                        placeholder="https://www.youtube.com/watch?v=... 或 https://youtube.com/shorts/..."
+                        autocomplete="url" inputmode="url">
+                    <p class="video-field-hint">支援一般影片、Shorts、直播回放網址，也可直接貼上 11 碼影片 ID。</p>
+                </div>
+                <button type="button" id="btnUpdateVideo" class="admin-action-btn" disabled>儲存影片設定</button>
+                <p id="videoFormMessage" class="video-form-message" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="video-preview-section" aria-labelledby="videoPreviewTitle">
+                <h2 class="section-title" id="videoPreviewTitle">影片預覽</h2>
+                <div class="video-preview-frame" id="videoPreviewFrame">
+                    <p>輸入有效的 YouTube 網址即可預覽影片。</p>
+                </div>
+            </section>
+
+            <div class="page-footer">
+                <a href="./admin.html" class="back-home-link">← 返回後台首頁</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="floating-panel">
+        <a class="social-btn" href="https://www.instagram.com/munalightwalker?obrf=MTRnODVxYTgybWc5Nw%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+        <a class="social-btn" href="https://www.facebook.com/share/19YgiiKDYp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+        <button class="pay-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">回頂端</button>
+    </div>
+</body>
+</html>

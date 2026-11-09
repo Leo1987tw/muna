@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>購物結帳清單 - 娜娜問路居</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/cart.css">
+    <script type="module" src="../js/cart.js"></script>
+    <script type="module" src="../js/script.js"></script>
+</head>
+
+<body class="site-page">
+
+    <!-- 1. 頂部固定導覽列（與您首頁 100% 一致，支援手機版磨砂玻璃大選單與純 CSS 窗簾動畫） -->
+
+    <!-- 2. 主內容佈局大容器：由 cart.css 控制 margin-top 推距，完美躲在大橫幅下方 -->
+    <main class="site-page-main">
+        <!-- 套用首頁精緻白底大容器 .content-card，使其限制寬度並柔和置中 -->
+        <article class="content-card">
+
+            <!-- 使用您定義的綠底白字膠囊標籤 -->
+            <div class="card-label">購物結帳清單</div>
+
+            <!-- 內部排版大容器 -->
+            <form id="checkout-main-form" class="cart-layout-container">
+
+                <!-- A. 商品明細展示區塊（唯讀沙盒） -->
+                <div id="cart-list-wrapper" class="cart-item-list">
+                    <!-- 由 JavaScript 自動動態帶入 -->
+                </div>
+
+                <!-- B. 收件資訊表單區塊 (導入 RWD 雙欄格線排版) -->
+                <div class="checkout-form-section" id="form-fields-container">
+                    <h3 class="form-section-title">📋 填寫收件資訊</h3>
+
+                    <div class="form-grid-two-col">
+                        <!-- 姓名欄位 -->
+                        <div class="form-group">
+                            <label class="form-label" for="receiver-name">收件人姓名 *</label>
+                            <input type="text" id="receiver-name" class="form-input" placeholder="請輸入真實姓名以利核對" required>
+                        </div>
+
+                        <!-- 電話欄位 -->
+                        <div class="form-group">
+                            <label class="form-label" for="receiver-phone">聯絡電話 *</label>
+                            <input type="tel" id="receiver-phone" class="form-input" placeholder="手機號碼（例如：0912345678）"
+                                pattern="^09[0-9]{8}$" required>
+                        </div>
+
+                        <!-- Email 欄位（選填） -->
+                        <div class="form-group">
+                            <label class="form-label" for="receiver-email">電子信箱</label>
+                            <input type="email" id="receiver-email" class="form-input" placeholder="請輸入電子信箱（選填）">
+                        </div>
+
+                        <!-- 配送方式選擇 -->
+                        <div class="form-group form-group-full">
+                            <label class="form-label">配送方式 *</label>
+                            <div class="checkout-options-group">
+
+                                <!-- 選項一：高雄自取 -->
+                                <label class="custom-option-card active-selected" id="label-ship-self-kh">
+                                    <input type="radio" name="shipping-method" value="self-kh" checked
+                                        id="ship-self-kh-radio">
+                                    <span class="custom-radio-circle"></span>
+                                    <span class="option-card-text">高雄實體據點自取（免運費）</span>
+                                </label>
+                                <!-- 💡 為高雄地址加上獨立 ID 的容器並設為 block (因為預設選中) -->
+                                <div id="note-ship-self-kh" class="form-note-text"
+                                    style="display: block; margin-top: -5px; padding-left: 10px;">
+                                    ※ 服務據點：高雄市新興區自立一路66號
+                                </div>
+
+                                <!-- 選項二：新北自取 -->
+                                <label class="custom-option-card" id="label-ship-self-ntpc">
+                                    <input type="radio" name="shipping-method" value="self-ntpc"
+                                        id="ship-self-ntpc-radio">
+                                    <span class="custom-radio-circle"></span>
+                                    <span class="option-card-text">新北實體據點自取（免運費）</span>
+                                </label>
+                                <!-- 💡 為新北地址加上獨立 ID 的容器，預設隱藏 (display: none) -->
+                                <div id="note-ship-self-ntpc" class="form-note-text"
+                                    style="display: none; margin-top: -5px; padding-left: 10px;">
+                                    ※ 服務據點：新北市板橋區重慶路21巷4號4樓
+                                </div>
+
+                                <!-- 選項三：宅配寄送 -->
+                                <label class="custom-option-card" id="label-ship-delivery">
+                                    <input type="radio" name="shipping-method" value="delivery"
+                                        id="ship-delivery-radio">
+                                    <span class="custom-radio-circle"></span>
+                                    <span class="option-card-text">宅配寄送（運費另計）</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 動態收件地址欄位 -->
+                        <div class="form-group form-group-full" id="address-input-group" style="display: none;">
+                            <label class="form-label" for="receiver-address">收件地址 *</label>
+                            <input type="text" id="receiver-address" class="form-input" placeholder="請輸入完整郵遞區號與寄送地址">
+                        </div>
+
+                        <!-- 付款方式選擇 -->
+                        <div class="form-group form-group-full">
+                            <label class="form-label">付款方式 *</label>
+                            <div class="checkout-options-group">
+                                <!-- 選項一：銀行轉帳 (預設選中，今天貼上代碼今晚就能直接成立訂單測試) -->
+                                <label class="custom-option-card active-selected" id="label-pay-transfer">
+                                    <input type="radio" name="payment-method" value="Transfer" checked
+                                        id="pay-transfer-radio">
+                                    <span class="custom-radio-circle"></span>
+                                    <span class="option-card-text">銀行轉帳 / 匯款（下單後顯示帳號）</span>
+                                </label>
+
+                                <!-- 選項二：LINE Pay (留給第二階段審核通過後隨時無縫改接) -->
+                                <label class="custom-option-card" id="label-pay-linepay">
+                                    <input type="radio" name="payment-method" value="LINEPay" id="pay-linepay-radio">
+                                    <span class="custom-radio-circle"></span>
+                                    <span class="option-card-text">LINE Pay 線上即時支付</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- C. 金額明細與總計區塊 -->
+                <div class="cart-summary-block">
+                    <div class="summary-fee-line">
+                        <span>商品小計</span>
+                        <span id="summary-subtotal-display">NT$ 0</span>
+                    </div>
+                    <div class="summary-fee-line">
+                        <span>物流運費</span>
+                        <span id="summary-shipping-fee-display">NT$ 0</span>
+                    </div>
+                    <div class="summary-total-line">
+                        <span>應付結帳總額</span>
+                        <span id="cart-total-display" class="cart-final-price">NT$ 0</span>
+                    </div>
+                </div>
+
+                <!-- D. 滿版高級結帳大按鈕 -->
+                <button type="submit" id="submit-to-payment-btn" class="cart-action-button">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0110 0v4" />
+                    </svg>
+                    確認無誤，前往安全付款
+                </button>
+
+            </form>
+
+            <!-- 返回首頁 -->
+            <div class="page-footer">
+                <a class="back-home-link" href="../index.html">← 返回首頁</a>
+            </div>
+
+        </article>
+    </main>
+</body>
+
+</html>
